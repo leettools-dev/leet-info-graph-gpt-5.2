@@ -1,0 +1,27 @@
+[project]
+name = "infograph-assistant-backend"
+version = "0.1.0"
+description = "Backend API for Research Infograph Assistant"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn[standard]",
+  "sqlalchemy>=2.0",
+  "aiosqlite",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "authlib>=1.3",
+  "httpx>=0.27",
+  "python-multipart",
+  "itsdangerous",
+  "jinja2",
+  "pillow",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["app/tests"]
+pythonpath = ["."]
