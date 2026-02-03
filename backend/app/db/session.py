@@ -13,5 +13,12 @@ AsyncSessionLocal = async_sessionmaker(
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
+    async with engine.begin() as conn:
+        # For MVP/testing: ensure tables exist even if ASGI lifespan isn't executed
+        # (httpx ASGITransport may not manage lifespan in some versions).
+        from app.db.base import Base
+
+        await conn.run_sync(Base.metadata.create_all)
+
     async with AsyncSessionLocal() as session:
         yield session
