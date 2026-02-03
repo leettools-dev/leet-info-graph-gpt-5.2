@@ -1,16 +1,6 @@
 {
   "todos": [
     {
-      "id": "product-market-researchers",
-      "content": "Product/market researchers",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "knowledge-workers-who-need-quick-visual-summaries",
       "content": "Knowledge workers who need quick visual summaries",
       "status": "pending",
@@ -368,11 +358,21 @@
       "dependencies": [],
       "suggested_solutions": [],
       "goal_id": null,
-      "branch": null
+      "branch": "main#feature#infographic-renderer"
     },
     {
       "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
       "content": "Storage: relational DB for users/sessions; object storage for images",
+      "status": "in_progress",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "product-market-researchers",
+      "content": "Product/market researchers",
       "status": "in_progress",
       "background": null,
       "dependencies": [],
