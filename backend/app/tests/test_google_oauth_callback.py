@@ -18,9 +18,14 @@ async def test_google_callback_sets_session_cookie(client, monkeypatch):
         _fake_exchange_code_for_userinfo,
     )
 
+    # Simulate browser: state is stored as a cookie and also returned as query param.
+    login = await client.get("/api/auth/google/login")
+    assert login.status_code == 200
+    state = login.json()["state"]
+
     r = await client.get(
         "/api/auth/google/callback",
-        params={"code": "abc"},
+        params={"code": "abc", "state": state},
         follow_redirects=False,
     )
 

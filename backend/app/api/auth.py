@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from fastapi.responses import RedirectResponse
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -8,20 +8,31 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.config import settings
 from app.db.session import get_db
 from app.models import User
-from app.services.auth import create_session_token
+from app.services.auth import create_oauth_state, create_session_token, verify_oauth_state
 from app.services.google_oauth import exchange_code_for_userinfo
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 
 @router.get("/google/login")
-async def google_login() -> dict:
+async def google_login(request: Request, response: Response) -> dict:
     """Return Google OAuth authorization URL parameters.
 
     Frontend should redirect the user to `auth_url` with these query params.
     """
     if not settings.google_client_id:
         raise HTTPException(status_code=501, detail="Google OAuth not configured")
+
+    state = create_oauth_state(request_host=str(request.headers.get("host") or ""))
+    # Stored as HttpOnly cookie to validate callback (CSRF protection)
+    response.set_cookie(
+        key="oauth_state",
+        value=state,
+        httponly=True,
+        samesite="lax",
+        secure=settings.cookie_secure,
+        max_age=60 * 10,
+    )
 
     return {
         "client_id": settings.google_client_id,
@@ -31,6 +42,7 @@ async def google_login() -> dict:
         "auth_url": "https://accounts.google.com/o/oauth2/v2/auth",
         "access_type": "offline",
         "prompt": "consent",
+        "state": state,
     }
 
 
@@ -38,6 +50,7 @@ async def google_login() -> dict:
 async def google_callback(
     request: Request,
     code: str,
+    state: str | None = None,
     db: AsyncSession = Depends(get_db),
 ):
     """OAuth callback.
@@ -45,10 +58,15 @@ async def google_callback(
     Exchanges `code` for tokens and fetches the user's profile (email/name). Creates or
     updates the local user record and sets our session cookie.
 
-    Note: CSRF `state` validation should be added (tracked as a follow-up security task).
     """
     if not settings.google_client_id or not settings.google_client_secret:
         raise HTTPException(status_code=501, detail="Google OAuth not configured")
+
+    expected_state = request.cookies.get("oauth_state")
+    if not state or not expected_state or not verify_oauth_state(
+        token=state, expected_token=expected_state
+    ):
+        raise HTTPException(status_code=401, detail="Invalid OAuth state")
 
     try:
         userinfo = await exchange_code_for_userinfo(
@@ -78,6 +96,7 @@ async def google_callback(
     token = create_session_token(user.id)
 
     response = RedirectResponse(url=settings.frontend_origin + "/")
+    response.delete_cookie("oauth_state")
     response.set_cookie(
         key="session",
         value=token,
