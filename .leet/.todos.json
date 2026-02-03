@@ -61,6 +61,16 @@
       "branch": null
     },
     {
+      "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
+      "content": "Storage: relational DB for users/sessions; object storage for images",
+      "status": "in_progress",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
       "id": "queue-worker-async-research-rendering-jobs",
       "content": "Queue/worker: async research + rendering jobs",
       "status": "pending",
@@ -344,36 +354,6 @@
       "id": "browse-past-sessions-in-history",
       "content": "Browse past sessions in History",
       "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "students-and-educators",
-      "content": "Students and educators",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": "main#feature#infographic-renderer"
-    },
-    {
-      "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
-      "content": "Storage: relational DB for users/sessions; object storage for images",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "product-market-researchers",
-      "content": "Product/market researchers",
-      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
