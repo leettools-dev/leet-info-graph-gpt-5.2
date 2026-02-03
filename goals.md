@@ -105,8 +105,8 @@ Appendix: sample user flow
 - [x] Students and educators
 - [x] Product/market researchers
 - [x] Knowledge workers who need quick visual summaries
-- [ ] Requirements
-- [ ] 1 Functional
+- [x] Requirements
+- [x] 1 Functional
 - [x] F1: Gmail OAuth login and account management
 - [x] F2: Chat UI to submit research prompts and follow-ups
 - [x] F3: Web search pipeline to collect sources; show source list
@@ -114,7 +114,7 @@ Appendix: sample user flow
 - [x] F5: Save each research session with prompt, sources, and infographic
 - [x] F6: History view with filters (topic, date, tags) and detail page
 - [x] F7: Export infographic (PNG/SVG) and session data (JSON)
-- [ ] 2 Non-functional
+- [x] 2 Non-functional
 - [x] N1: Rate-limit external calls; cache source fetches
 - [x] N2: Secure OAuth and API secrets; no secrets in repo
 - [x] N3: Traceable provenance (source links per claim)
