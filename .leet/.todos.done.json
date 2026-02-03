@@ -259,6 +259,16 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": "main#feature#stabilize-todos"
+    },
+    {
+      "id": "f7:-export-infographic-(png/svg)-and-session-data-(json)",
+      "content": "F7: Export infographic (PNG/SVG) and session data (JSON)",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }

@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+# Delegate to backend's pytest configuration so `pytest` from repo root works.
+asyncio_mode = "auto"
+testpaths = ["backend/app/tests"]
+pythonpath = ["backend"]
+addopts = "-ra"
