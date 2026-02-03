@@ -1,6 +1,16 @@
 {
   "todos": [
     {
+      "id": "1-functional",
+      "content": "1 Functional",
+      "status": "in_progress",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
       "id": "2-non-functional",
       "content": "2 Non-functional",
       "status": "pending",
@@ -314,26 +324,6 @@
       "id": "browse-past-sessions-in-history",
       "content": "Browse past sessions in History",
       "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "1-functional",
-      "content": "1 Functional",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "f7:-export-infographic-(png/svg)-and-session-data-(json)",
-      "content": "F7: Export infographic (PNG/SVG) and session data (JSON)",
-      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
