@@ -76,29 +76,17 @@ See .leet/.todos.json for the current development status.
 
 ## Testing
 
-### CI/Local test commands
-
-Backend:
+Backend (note: in some environments `pytest` isn’t on PATH):
 ```bash
 cd backend
 python3 -m pytest
 ```
 
-Frontend:
+If you want to run the lightweight schema/unit tests in `backend/tests` explicitly:
 ```bash
-cd frontend
-npm test
+cd backend
+python3 -m pytest backend/tests
 ```
-
-Note: in some environments `pytest`/`python` may not be on PATH; prefer `python3 -m pytest`.
-
-### Backend (from repo root)
-
-```bash
-python3 -m pytest
-```
-
-> Note: the repo root `pyproject.toml` config delegates pytest discovery to `backend/app/tests` so `pytest` works from the top-level.
 
 ## License
 
