@@ -161,4 +161,4 @@ Appendix: sample user flow
 - [ ] All requirements implemented
 - [ ] All features have unit tests
 - [ ] README.md documents all features
-- [ ] All tests pass
+- [x] All tests pass
