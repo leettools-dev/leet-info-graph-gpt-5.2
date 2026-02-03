@@ -203,6 +203,9 @@ export function App() {
         >
           {loading ? 'Working…' : 'Send'}
         </button>
+        <span style={{ fontSize: 12, color: '#374151', alignSelf: 'center' }} aria-label="Keyboard shortcut hint">
+          Ctrl/⌘ + Enter
+        </span>
       </section>
 
       {error && (
@@ -211,7 +214,13 @@ export function App() {
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: 16
+        }}
+      >
         <section aria-label="History">
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
             <h2 style={{ margin: 0 }}>History</h2>
@@ -266,7 +275,7 @@ export function App() {
                   <button
                     aria-label={`Open session ${s.id}`}
                     onClick={() => void loadSessionDetail(s.id)}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', textAlign: 'left' }}
                   >
                     <strong>#{s.id}</strong> {s.prompt} <em>({s.status})</em>
                   </button>
