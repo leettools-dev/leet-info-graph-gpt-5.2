@@ -37,4 +37,10 @@ class Settings(BaseSettings):
     search_cache_max_items: int = 512
 
 
+    # Source fetch/ingest: rate limiting + caching
+    fetch_rate_per_minute: int = 20
+    fetch_cache_ttl_seconds: int = 60 * 60
+    fetch_cache_max_items: int = 512
+
+
 settings = Settings()
