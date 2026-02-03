@@ -10,7 +10,7 @@ from app.models import Infographic, Message, ResearchSession, Source
 from app.services.infographic import InfographicRenderer
 from app.services.ingest import IngestPipeline
 from app.services.storage import LocalMediaStorage
-from app.services.web_search import WebSearchClient
+from app.services.web_search import DuckDuckGoHTMLSearchClient
 
 
 async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
@@ -29,7 +29,7 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
     query = session.prompt
 
     # 1) Web search
-    search_client = WebSearchClient()
+    search_client = DuckDuckGoHTMLSearchClient()
     hits = await search_client.search(query)
 
     # 2) Ingest a few sources
@@ -50,7 +50,7 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
                 title=ing.title or h.title,
                 url=ing.url,
                 snippet=ing.snippet or h.snippet,
-                confidence=h.score,
+                confidence=1.0,
                 fetched_at=datetime.utcnow(),
             )
         )

@@ -3,7 +3,7 @@
     {
       "id": "user-id-email-name-created-at",
       "content": "User: id, email, name, created_at",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
