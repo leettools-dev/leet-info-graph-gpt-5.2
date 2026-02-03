@@ -3,7 +3,7 @@
     {
       "id": "source-id-session-id-title-url-snippet-fetched-at-confidence",
       "content": "Source: id, session_id, title, url, snippet, fetched_at, confidence",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],

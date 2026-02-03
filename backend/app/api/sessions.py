@@ -386,11 +386,15 @@ async def get_session(
     )
 
 
-@router.post("/{session_id}/sources", status_code=201)
+from app.schemas.sources import SourceCreate
+
+
+@router.post("/{session_id}/sources", response_model=dict, status_code=201)
 async def add_source(
     session_id: int,
-    title: str,
-    url: str,
+    payload: SourceCreate | None = None,
+    title: str | None = None,
+    url: str | None = None,
     snippet: str | None = None,
     confidence: float | None = None,
     user: User = Depends(get_current_user),
@@ -406,12 +410,25 @@ async def add_source(
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
+    if payload is None:
+        # Backwards compatible query-params API (used by existing tests / clients)
+        if not title or not title.strip():
+            raise HTTPException(status_code=422, detail="title required")
+        if not url or not url.strip():
+            raise HTTPException(status_code=422, detail="url required")
+        payload = SourceCreate(
+            title=title,
+            url=url,
+            snippet=snippet,
+            confidence=confidence,
+        )
+
     src = Source(
         session_id=session.id,
-        title=title,
-        url=url,
-        snippet=snippet,
-        confidence=confidence,
+        title=payload.title,
+        url=str(payload.url),
+        snippet=payload.snippet,
+        confidence=payload.confidence,
         fetched_at=datetime.utcnow(),
     )
     db.add(src)
