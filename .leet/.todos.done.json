@@ -369,6 +369,26 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "user-id-email-name-created-at",
+      "content": "User: id, email, name, created_at",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "researchsession-id-user-id-prompt-status-created-at",
+      "content": "ResearchSession: id, user_id, prompt, status, created_at",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
