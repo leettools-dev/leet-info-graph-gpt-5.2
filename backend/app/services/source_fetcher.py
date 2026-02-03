@@ -13,6 +13,10 @@ class FetchError(RuntimeError):
     """Raised when fetching a source URL fails."""
 
 
+class ContentQualityError(RuntimeError):
+    """Raised when fetched content is missing/too low quality for summarization."""
+
+
 @dataclass(frozen=True)
 class FetchedSource:
     """Fetched and lightly-parsed representation of a web page."""
@@ -20,6 +24,9 @@ class FetchedSource:
     url: str
     title: str | None
     text: str
+    content_type: str | None = None
+    status_code: int | None = None
+    fetched_at_epoch: float | None = None
 
 
 class HTTPSourceFetcher:
@@ -27,6 +34,11 @@ class HTTPSourceFetcher:
 
     This implements the "ingest" part of the pipeline: given a URL, fetch the
     HTML, extract a title and plain-ish text.
+
+    Reliability notes (MVP):
+    - Reject obviously non-HTML responses.
+    - Detect likely block pages / CAPTCHAs.
+    - Enforce minimum text length.
     """
 
     def __init__(
@@ -38,6 +50,8 @@ class HTTPSourceFetcher:
         cache_ttl_seconds: int = 60 * 60,
         cache_max_items: int = 512,
         rate_per_minute: int = 30,
+        min_text_length: int = 400,
+        max_text_length: int = 60_000,
     ) -> None:
         self._http = http_client or httpx.AsyncClient(timeout=20, follow_redirects=True)
         self._cache = cache or SimpleTTLCache(
@@ -46,6 +60,8 @@ class HTTPSourceFetcher:
         self._rate_limiter = rate_limiter or TokenBucketRateLimiter(
             rate_per_minute=rate_per_minute
         )
+        self._min_text_length = min_text_length
+        self._max_text_length = max_text_length
 
     def _cache_key(self, url: str) -> str:
         return hashlib.sha256(f"fetch:{url}".encode("utf-8")).hexdigest()
@@ -70,14 +86,36 @@ class HTTPSourceFetcher:
         except Exception as exc:  # noqa: BLE001
             raise FetchError(f"Failed to fetch url: {url}") from exc
 
+        content_type = (resp.headers.get("content-type") or "").lower().strip()
+        if content_type and "text/html" not in content_type and "application/xhtml" not in content_type:
+            raise ContentQualityError(
+                f"Unsupported content-type for url {url}: {content_type}"
+            )
+
         html = resp.text
+        if _looks_like_block_page(html):
+            raise ContentQualityError(f"Blocked or bot-detection page for url: {url}")
+
         title = _extract_title(html)
         text = _html_to_text(html)
+        text = _normalize_whitespace(text)
+        if len(text) > self._max_text_length:
+            text = text[: self._max_text_length]
+        if len(text) < self._min_text_length:
+            raise ContentQualityError(
+                f"Insufficient text extracted from url: {url} (len={len(text)})"
+            )
 
-        fetched = FetchedSource(url=url, title=title, text=text)
+        fetched = FetchedSource(
+            url=url,
+            title=title,
+            text=text,
+            content_type=content_type or None,
+            status_code=resp.status_code,
+            fetched_at_epoch=started,
+        )
         self._cache.set(key, fetched)
 
-        _ = started  # placeholder for future latency metrics
         return fetched
 
 
@@ -94,6 +132,41 @@ def _extract_title(html: str) -> str | None:
         return None
     title = html[gt + 1 : end]
     return " ".join(_html_to_text(title).split()) or None
+
+
+def _normalize_whitespace(text: str) -> str:
+    """Normalize whitespace while preserving paragraph breaks."""
+
+    lines = [" ".join(line.split()) for line in text.splitlines()]
+    # Keep non-empty lines; cap consecutive blanks to a single blank line
+    out: list[str] = []
+    blank = False
+    for line in lines:
+        if not line.strip():
+            if not blank:
+                out.append("")
+            blank = True
+            continue
+        blank = False
+        out.append(line)
+    normalized = "\n".join(out).strip()
+    return normalized
+
+
+def _looks_like_block_page(html: str) -> bool:
+    """Heuristically detect bot-detection / block pages."""
+
+    lower = html.lower()
+    indicators = [
+        "captcha",
+        "cloudflare",
+        "attention required",
+        "verify you are human",
+        "unusual traffic",
+        "access denied",
+        "temporary blocked",
+    ]
+    return any(ind in lower for ind in indicators)
 
 
 def _html_to_text(html: str) -> str:

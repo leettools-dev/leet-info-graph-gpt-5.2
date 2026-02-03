@@ -439,6 +439,16 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": "main#feature#todo-store-sync"
+    },
+    {
+      "id": "phase-3-advanced-layouts-tagging-exports-improved-source-scoring",
+      "content": "Phase 3: Advanced layouts, tagging, exports, improved source scoring",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }

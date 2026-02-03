@@ -11,19 +11,9 @@
       "branch": null
     },
     {
-      "id": "phase-3-advanced-layouts-tagging-exports-improved-source-scoring",
-      "content": "Phase 3: Advanced layouts, tagging, exports, improved source scoring",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "web-content-quality-and-reliability",
       "content": "Web content quality and reliability",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -142,7 +132,7 @@
     },
     {
       "id": "ask-summarize-current-ev-market-trends",
-      "content": "Ask: “Summarize current EV market trends”",
+      "content": "Ask: \u201cSummarize current EV market trends\u201d",
       "status": "completed",
       "background": null,
       "dependencies": [],
