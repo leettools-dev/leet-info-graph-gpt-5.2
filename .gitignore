@@ -16,5 +16,8 @@ frontend/.env
 # DB
 *.db
 
+# Generated media/artifacts
+media/
+
 # OS
 .DS_Store
