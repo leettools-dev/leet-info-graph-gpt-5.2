@@ -4,7 +4,6 @@ from itsdangerous import BadSignature, URLSafeSerializer
 
 from app.core.config import settings
 
-
 _serializer = URLSafeSerializer(settings.secret_key, salt="session")
 
 

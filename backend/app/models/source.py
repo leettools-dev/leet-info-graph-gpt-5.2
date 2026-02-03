@@ -12,11 +12,15 @@ class Source(Base):
     __tablename__ = "sources"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    session_id: Mapped[int] = mapped_column(ForeignKey("research_sessions.id"), index=True)
+    session_id: Mapped[int] = mapped_column(
+        ForeignKey("research_sessions.id"), index=True
+    )
     title: Mapped[str] = mapped_column(String(500))
     url: Mapped[str] = mapped_column(String(2000))
     snippet: Mapped[str | None] = mapped_column(String, nullable=True)
-    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    fetched_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
     confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
 
     session = relationship("ResearchSession", back_populates="sources")

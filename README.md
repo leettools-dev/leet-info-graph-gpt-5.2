@@ -19,6 +19,9 @@ generates an infographic, and provides...
 - Backend API scaffold (FastAPI) with SQLite storage and session CRUD endpoints.
 - Dev-only login endpoint to simulate OAuth during local development.
 - Minimal React SPA scaffold with prompt input and history list (uses API cookies).
+
+- Web search pipeline endpoint (MVP): `POST /api/search/sessions/{session_id}?query=...` attaches top results as Sources and updates session status.
+- Basic rate limiting + in-memory TTL cache for search results (process-local, replaceable with Redis later).
 ## Getting Started
 
 ### Prerequisites
