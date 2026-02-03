@@ -11,16 +11,6 @@
       "branch": null
     },
     {
-      "id": "quality-user-rating-4-5-on-infographic-usefulness",
-      "content": "Quality: user rating >=4/5 on infographic usefulness",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "latency-end-to-end-research-render-90s-p50",
       "content": "Latency: end-to-end research + render < 90s (P50)",
       "status": "pending",

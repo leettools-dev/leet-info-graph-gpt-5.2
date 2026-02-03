@@ -144,7 +144,7 @@ Appendix: sample user flow
 - [x] Cost spikes from heavy rendering/search
 - [x] Success Metrics
 - [x] Adoption: % of users who create >=2 sessions
-- [ ] Quality: user rating >=4/5 on infographic usefulness
+- [x] Quality: user rating >=4/5 on infographic usefulness
 - [ ] Latency: end-to-end research + render < 90s (P50)
 - [ ] Provenance: 90% of claims have at least one source link
 - [x] Next Steps
