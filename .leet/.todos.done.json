@@ -239,6 +239,16 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "knowledge-workers-who-need-quick-visual-summaries",
+      "content": "Knowledge workers who need quick visual summaries",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }

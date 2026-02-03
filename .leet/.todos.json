@@ -1,16 +1,6 @@
 {
   "todos": [
     {
-      "id": "knowledge-workers-who-need-quick-visual-summaries",
-      "content": "Knowledge workers who need quick visual summaries",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "requirements",
       "content": "Requirements",
       "status": "pending",
