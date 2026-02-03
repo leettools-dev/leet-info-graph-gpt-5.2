@@ -26,6 +26,21 @@ Config (env):
 - `INFOGRAPH_INGEST_MAX_FAILURES_PER_SESSION` (default: 10)
 - `INFOGRAPH_INGEST_MAX_SOURCE_CHARS_FOR_SUMMARIZATION` (default: 20000)
 
+
+### Adoption metrics (MVP)
+
+Backend exposes a simple per-user adoption metric: whether the signed-in user has created **>=2 research sessions** within a given time window.
+
+**Endpoint**
+- `GET /api/metrics/adoption?days=30` (requires authentication cookie)
+
+**Response**
+Returns a small JSON payload including:
+- `sessions_in_window`
+- `eligible_users` (0/1)
+- `users_with_2plus_sessions` (0/1)
+- `adoption_rate` (0.0 or 1.0 in MVP)
+
 ## Getting Started
 
 ### Prerequisites

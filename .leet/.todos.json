@@ -13,7 +13,7 @@
     {
       "id": "adoption-of-users-who-create-2-sessions",
       "content": "Adoption: % of users who create >=2 sessions",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
