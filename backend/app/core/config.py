@@ -4,10 +4,16 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="INFOGRAPH_", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_prefix="INFOGRAPH_",
+        extra="ignore",
+        # Load from .env in local development; do not commit secrets.
+        env_file=".env",
+    )
 
     # Security
-    secret_key: str = "dev-insecure-change-me"
+    # IMPORTANT: set INFOGRAPH_SECRET_KEY in all non-dev environments.
+    secret_key: str
 
     # Database
     database_url: str = "sqlite+aiosqlite:///./infograph.db"

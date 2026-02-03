@@ -19,6 +19,7 @@ def app_env(tmp_path, monkeypatch) -> None:
     )
     monkeypatch.setenv("INFOGRAPH_GOOGLE_CLIENT_ID", "test-client")
     monkeypatch.setenv("INFOGRAPH_GOOGLE_CLIENT_SECRET", "test-secret")
+    monkeypatch.setenv("INFOGRAPH_SECRET_KEY", "test-" + "x" * 32)
 
 
 @pytest.fixture()
