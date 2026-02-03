@@ -4,6 +4,9 @@ from datetime import datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import Response
+
+from app.core.config import settings
+from app.services.storage import LocalMediaStorage
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -89,10 +92,7 @@ async def export_infographic_svg(
     user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    """Export the session infographic as an SVG file.
-
-    For the MVP, infographics are stored as a data URL containing SVG.
-    """
+    """Export the session infographic as an SVG file."""
     res = await db.execute(
         select(ResearchSession).where(
             ResearchSession.id == session_id,
@@ -108,10 +108,18 @@ async def export_infographic_svg(
         raise HTTPException(status_code=404, detail="Infographic not found")
 
     image_url: str = session.infographic.image_url
-    if not image_url.startswith("data:image/svg+xml"):
-        raise HTTPException(status_code=409, detail="Infographic is not an SVG data URL")
 
-    # Handle both `;utf8,` and plain `,` separators.
+    # If stored as an http(s) URL, redirect to the static file.
+    if image_url.startswith("http://") or image_url.startswith("https://"):
+        return Response(
+            status_code=307,
+            headers={"Location": image_url},
+        )
+
+    # Backward compatibility: handle legacy data URLs.
+    if not image_url.startswith("data:image/svg+xml"):
+        raise HTTPException(status_code=409, detail="Infographic is not an SVG")
+
     idx = image_url.find(",")
     if idx == -1:
         raise HTTPException(status_code=500, detail="Invalid infographic data URL")
@@ -200,7 +208,7 @@ async def generate_infographic(
         "version": 2,
     }
 
-    # Render a basic SVG (stored as a data URL for now).
+    # Render a basic SVG.
     lines = [
         "<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'>",
         "<rect width='100%' height='100%' fill='#0B1220'/>",
@@ -222,8 +230,14 @@ async def generate_infographic(
         )
         y += 36
     lines.append("</svg>")
-    svg = "".join(lines)
-    image_url = "data:image/svg+xml;utf8," + svg
+    svg = "".join(lines).encode("utf-8")
+
+    storage = LocalMediaStorage(settings.media_root, settings.media_base_url)
+    stored = storage.save_bytes(
+        rel_path=f"sessions/{session.id}/infographic.svg",
+        content=svg,
+    )
+    image_url = stored.url
 
     if session.infographic:
         session.infographic.image_url = image_url

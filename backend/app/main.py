@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.api import auth, ingest, search, sessions
 from app.core.config import settings
@@ -27,6 +28,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve locally stored media (dev/MVP). In production this should be served by a CDN/bucket.
+# Ensure directory exists to avoid import-time errors.
+import os
+
+os.makedirs(settings.media_root, exist_ok=True)
+app.mount("/media", StaticFiles(directory=settings.media_root), name="media")
 
 
 @app.get("/health")
