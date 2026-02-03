@@ -139,7 +139,7 @@ Appendix: sample user flow
 - [x] Phase 3: Advanced layouts, tagging, exports, improved source scoring
 - [x] Risks
 - [x] Web content quality and reliability
-- [ ] Rate limits or blocking on sources
+- [x] Rate limits or blocking on sources
 - [ ] Hallucinated claims without solid sources
 - [ ] Cost spikes from heavy rendering/search
 - [x] Success Metrics
