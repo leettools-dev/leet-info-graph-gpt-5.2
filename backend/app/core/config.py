@@ -23,5 +23,12 @@ class Settings(BaseSettings):
     # Cookies
     cookie_secure: bool = False
 
+    # Web search: rate limiting + caching
+    # These are used to protect upstream services (e.g., DuckDuckGo HTML endpoint)
+    # and to cache repeated queries.
+    search_rate_per_minute: int = 20
+    search_cache_ttl_seconds: int = 60 * 60
+    search_cache_max_items: int = 512
+
 
 settings = Settings()

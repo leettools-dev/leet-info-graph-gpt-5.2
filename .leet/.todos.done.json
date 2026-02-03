@@ -99,6 +99,26 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "f7-export-infographic-png-svg-and-session-data-json",
+      "content": "F7: Export infographic (PNG/SVG) and session data (JSON)",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "n1-rate-limit-external-calls-cache-source-fetches",
+      "content": "N1: Rate-limit external calls; cache source fetches",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }

@@ -47,6 +47,18 @@ Backend now supports exporting:
 
 Both endpoints require authentication and return `Content-Disposition: attachment` for the SVG.
 
+
+### Rate limiting + caching for web search (N1)
+
+The backend web search service includes a simple in-process token-bucket rate limiter and a TTL cache to reduce repeated upstream calls.
+
+**Config (env vars, prefix `INFOGRAPH_`):**
+- `INFOGRAPH_SEARCH_RATE_PER_MINUTE` (default: `20`)
+- `INFOGRAPH_SEARCH_CACHE_TTL_SECONDS` (default: `3600`)
+- `INFOGRAPH_SEARCH_CACHE_MAX_ITEMS` (default: `512`)
+
+These settings are applied to the DuckDuckGo HTML search client used by `POST /api/search/sessions/{session_id}`.
+
 ## Getting Started
 
 ### Prerequisites

@@ -113,9 +113,9 @@ Appendix: sample user flow
 - [x] F4: Generate infographic (title, key stats, bullets, charts, references)
 - [x] F5: Save each research session with prompt, sources, and infographic
 - [x] F6: History view with filters (topic, date, tags) and detail page
-- [ ] F7: Export infographic (PNG/SVG) and session data (JSON)
+- [x] F7: Export infographic (PNG/SVG) and session data (JSON)
 - [ ] 2 Non-functional
-- [ ] N1: Rate-limit external calls; cache source fetches
+- [x] N1: Rate-limit external calls; cache source fetches
 - [ ] N2: Secure OAuth and API secrets; no secrets in repo
 - [ ] N3: Traceable provenance (source links per claim)
 - [ ] N4: Responsive UI; core pages render under 2s on broadband

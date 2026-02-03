@@ -9,6 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.deps import get_current_user
 from app.db.session import get_db
 from app.models import Message, ResearchSession, Source, User
+from app.core.config import settings
 from app.services.web_search import DuckDuckGoHTMLSearchClient, RateLimitError
 
 router = APIRouter(prefix="/search", tags=["search"])
@@ -38,7 +39,11 @@ async def search_and_attach_sources(
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
-    client = DuckDuckGoHTMLSearchClient()
+    client = DuckDuckGoHTMLSearchClient(
+        cache_ttl_seconds=settings.search_cache_ttl_seconds,
+        cache_max_items=settings.search_cache_max_items,
+        rate_per_minute=settings.search_rate_per_minute,
+    )
     try:
         results = await client.search(query, max_results=max_results)
     except RateLimitError as exc:
