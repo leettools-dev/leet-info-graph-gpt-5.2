@@ -42,12 +42,19 @@ class Settings(BaseSettings):
     search_rate_per_minute: int = 20
     search_cache_ttl_seconds: int = 60 * 60
     search_cache_max_items: int = 512
+    search_max_results: int = 5
 
 
     # Source fetch/ingest: rate limiting + caching
     fetch_rate_per_minute: int = 20
     fetch_cache_ttl_seconds: int = 60 * 60
     fetch_cache_max_items: int = 512
+
+    # Cost/latency guardrails for jobs
+    # Caps work done per research session to prevent runaway costs.
+    ingest_max_sources_per_session: int = 5
+    ingest_max_failures_per_session: int = 10
+    ingest_max_source_chars_for_summarization: int = 20_000
 
 
 settings = Settings()

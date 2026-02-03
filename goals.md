@@ -140,8 +140,8 @@ Appendix: sample user flow
 - [x] Risks
 - [x] Web content quality and reliability
 - [x] Rate limits or blocking on sources
-- [ ] Hallucinated claims without solid sources
-- [ ] Cost spikes from heavy rendering/search
+- [x] Hallucinated claims without solid sources
+- [x] Cost spikes from heavy rendering/search
 - [x] Success Metrics
 - [ ] Adoption: % of users who create >=2 sessions
 - [ ] Quality: user rating >=4/5 on infographic usefulness

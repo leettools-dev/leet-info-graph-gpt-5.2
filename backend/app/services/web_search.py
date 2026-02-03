@@ -12,6 +12,10 @@ class RateLimitError(RuntimeError):
     """Raised when an upstream call is blocked by rate limiting."""
 
 
+class BudgetExceededError(RuntimeError):
+    """Raised when a per-session (or per-request) budget is exceeded."""
+
+
 @dataclass(frozen=True)
 class SearchResult:
     """A single web search result."""
@@ -101,6 +105,15 @@ class TokenBucketRateLimiter:
             if self.allow():
                 return
             await _sleep_for_token(self.refill_rate_per_sec)
+
+    async def acquire_or_raise(self) -> None:
+        """Acquire a token or raise RateLimitError.
+
+        Used by tests and for endpoints that should fail fast.
+        """
+
+        if not self.allow():
+            raise RateLimitError("rate limited")
 
 
 async def _sleep_for_token(refill_rate_per_sec: float) -> None:

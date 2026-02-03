@@ -32,13 +32,19 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
     search_client = DuckDuckGoHTMLSearchClient()
     hits = await search_client.search(query)
 
-    # 2) Ingest a few sources
-    pipeline = IngestPipeline()
+    # 2) Ingest a few sources (guardrails to avoid runaway cost/latency)
+    pipeline = IngestPipeline(max_chars=settings.ingest_max_source_chars_for_summarization)
     ingested = []
+    failures = 0
     for h in hits[: settings.search_max_results]:
+        if len(ingested) >= settings.ingest_max_sources_per_session:
+            break
+        if failures >= settings.ingest_max_failures_per_session:
+            break
         try:
             ing = await pipeline.ingest(h.url)
         except Exception:
+            failures += 1
             continue
         ingested.append((h, ing))
 
