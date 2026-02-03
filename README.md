@@ -31,6 +31,8 @@ export INFOGRAPH_MEDIA_ROOT=./media
 export INFOGRAPH_MEDIA_BASE_URL=http://localhost:8000/media
 ```
 
+
+- **Relational DB + object storage (dev/MVP)**: Sessions and related entities persist in SQLite via async SQLAlchemy. Generated infographics are written to local `media/` and served as static URLs under `/media/...` (stand-in for S3/GCS).
 ## Getting Started
 
 ### Prerequisites
