@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import Response
 
 from app.core.config import settings
+from app.services.infographic import InfographicRenderer
 from app.services.storage import LocalMediaStorage
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -195,65 +196,10 @@ async def generate_infographic(
         for s in session.sources
     ]
 
-    title = (
-        session.prompt.strip()[:80]
-        .replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-        .replace('"', "&quot;")
-    )
-    bullets = [
-        f"{idx+1}. {s.title.strip()[:80]}"
-        for idx, s in enumerate(session.sources[:5])
-        if s.title
-    ]
-    if not bullets:
-        bullets = ["Add sources to generate richer results."]
-
-    claims = []
-    for idx, bullet in enumerate(bullets[:8]):
-        # MVP provenance mapping: each claim references the top 1-2 sources.
-        # This is intentionally simple but ensures *per-claim* traceability.
-        claims.append(
-            {
-                "id": f"c{idx+1}",
-                "text": bullet,
-                "source_ids": [s["source_id"] for s in sources_meta[: min(2, len(sources_meta))]],
-            }
-        )
-
-    layout_meta = {
-        "title": title,
-        "key_bullets": bullets,
-        "claims": claims,
-        "sources": sources_meta,
-        "generated_by": "mvp-svg-template",
-        "version": 2,
-    }
-
-    # Render a basic SVG.
-    lines = [
-        "<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'>",
-        "<rect width='100%' height='100%' fill='#0B1220'/>",
-        "<text x='40' y='70' fill='#E5E7EB' font-family='Arial' font-size='28' font-weight='700'>",
-        f"{title}",
-        "</text>",
-        "<text x='40' y='110' fill='#9CA3AF' font-family='Arial' font-size='14'>Generated infographic (MVP)</text>",
-    ]
-    y = 160
-    for b in bullets[:8]:
-        safe = (
-            b.replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace('"', "&quot;")
-        )
-        lines.append(
-            f"<text x='60' y='{y}' fill='#E5E7EB' font-family='Arial' font-size='18'>{safe}</text>"
-        )
-        y += 36
-    lines.append("</svg>")
-    svg = "".join(lines).encode("utf-8")
+    renderer = InfographicRenderer()
+    rendered = renderer.render_session_infographic(prompt=session.prompt, sources=sources_meta)
+    layout_meta = rendered.layout_meta
+    svg = rendered.svg_bytes
 
     storage = LocalMediaStorage(settings.media_root, settings.media_base_url)
     stored = storage.save_bytes(
