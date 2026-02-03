@@ -46,7 +46,21 @@ See .leet/.todos.json for the current development status.
 
 ## Testing
 
+### Backend
+
 ```bash
+cd backend
+pytest
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm test
+```
+
+Note: the current frontend test script is a placeholder (prints "no tests yet").
 # Test instructions will be added
 ```
 
