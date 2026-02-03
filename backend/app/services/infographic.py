@@ -43,11 +43,18 @@ class InfographicRenderer:
 
         claims: list[dict[str, Any]] = []
         for idx, bullet in enumerate(bullets[:8]):
+            claim_source_ids = [
+                s.get("source_id")
+                for s in sources[: min(2, len(sources))]
+                if s.get("source_id") is not None
+            ]
             claims.append(
                 {
                     "id": f"c{idx+1}",
                     "text": bullet,
-                    "source_ids": [s.get("source_id") for s in sources[: min(2, len(sources))] if s.get("source_id") is not None],
+                    "source_ids": claim_source_ids,
+                    # If a claim has no sources, treat it as an ungrounded suggestion.
+                    "grounded": bool(claim_source_ids),
                 }
             )
 
