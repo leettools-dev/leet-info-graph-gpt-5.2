@@ -121,7 +121,7 @@ Appendix: sample user flow
 - [x] N4: Responsive UI; core pages render under 2s on broadband
 - [x] N5: Accessibility: keyboard nav, ARIA labels, contrast checks
 - [ ] Architecture
-- [ ] Frontend: SPA (chat, history, detail pages)
+- [x] Frontend: SPA (chat, history, detail pages)
 - [x] Backend API: auth, session CRUD, job orchestration
 - [ ] Search/ingest: web fetch + source parser + summarizer
 - [ ] Infographic generator: template-based layout + chart rendering
