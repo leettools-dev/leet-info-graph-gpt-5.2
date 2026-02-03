@@ -62,6 +62,13 @@ class TokenBucketRateLimiter:
     """Simple in-process token bucket rate limiter.
 
     This is a best-effort limiter meant to reduce upstream traffic.
+
+    It exposes two APIs:
+    - allow(): bool (non-blocking)
+    - await acquire(): (blocking until a token is available)
+
+    Note: This limiter is process-local (MVP). For multi-worker deployments,
+    replace with a shared limiter (e.g., Redis).
     """
 
     def __init__(self, rate_per_minute: int = 30) -> None:
@@ -73,17 +80,36 @@ class TokenBucketRateLimiter:
         self.refill_rate_per_sec = self.capacity / 60.0
         self.last = time.time()
 
-    def allow(self) -> bool:
+    def _refill(self) -> None:
         now = time.time()
         elapsed = now - self.last
         self.last = now
-        self.tokens = min(
-            self.capacity, self.tokens + elapsed * self.refill_rate_per_sec
-        )
+        self.tokens = min(self.capacity, self.tokens + elapsed * self.refill_rate_per_sec)
+
+    def allow(self) -> bool:
+        self._refill()
         if self.tokens >= 1.0:
             self.tokens -= 1.0
             return True
         return False
+
+    async def acquire(self) -> None:
+        """Wait until a token is available."""
+
+        # Small sleep-based loop is sufficient for our MVP.
+        while True:
+            if self.allow():
+                return
+            await _sleep_for_token(self.refill_rate_per_sec)
+
+
+async def _sleep_for_token(refill_rate_per_sec: float) -> None:
+    # Avoid division by zero; refill_rate_per_sec is derived from rate_per_minute (>0)
+    delay = max(0.05, min(1.0, 1.0 / refill_rate_per_sec))
+    import asyncio
+
+    await asyncio.sleep(delay)
+
 
 
 class DuckDuckGoHTMLSearchClient:
@@ -124,8 +150,8 @@ class DuckDuckGoHTMLSearchClient:
         if cached is not None:
             return cached
 
-        if not self._rate_limiter.allow():
-            raise RateLimitError("Search rate limit exceeded")
+        # Prefer waiting over failing fast for better UX.
+        await self._rate_limiter.acquire()
 
         # Use HTML endpoint and parse very lightly.
         resp = await self._http.post(

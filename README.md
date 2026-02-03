@@ -13,9 +13,7 @@ generates an infographic, and provides...
 
 ## Features
 
-- **Infographic export (SVG) & session export (JSON):** Download a generated infographic as `infographic.svg` and export a full research session payload (session metadata, sources, messages, infographic metadata/claims) as `export.json`.
-  - `GET /api/sessions/{session_id}/infographic.svg`
-  - `GET /api/sessions/{session_id}/export.json`
+- **Upstream rate-limit resilience (MVP):** external web search and source fetch calls use an in-process token-bucket limiter. When the limiter is saturated, calls *wait for an available token* instead of failing fast, reducing user-visible errors during temporary throttling.
 
 ## Getting Started
 
