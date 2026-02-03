@@ -11,16 +11,6 @@
       "branch": null
     },
     {
-      "id": "phase-2-infographic-generation-mvp-static-template-charts-session-save",
-      "content": "Phase 2: Infographic generation MVP (static template + charts), session save",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "phase-3-advanced-layouts-tagging-exports-improved-source-scoring",
       "content": "Phase 3: Advanced layouts, tagging, exports, improved source scoring",
       "status": "pending",
@@ -188,7 +178,7 @@
       "dependencies": [],
       "suggested_solutions": [],
       "goal_id": null,
-      "branch": "main#feature#metrics-tracking"
+      "branch": "main#feature#todo-store-sync"
     }
   ]
 }
