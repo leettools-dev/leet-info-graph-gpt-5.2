@@ -25,6 +25,8 @@ generates an infographic, and provides...
 
 - Natural-language prompt input validation (backend + UI): prompts must be non-empty, >= 3 chars, <= 4000 chars; UI disables send for short prompts and supports Ctrl/Cmd+Enter.
 
+
+- **Infographic generation (MVP)**: `POST /api/sessions/{id}/infographic` generates and stores a simple, deterministic SVG infographic for a session, returned as a `data:image/svg+xml` URL with `layout_meta` (title, bullets, and source provenance).
 ## Getting Started
 
 ### Prerequisites
