@@ -143,7 +143,7 @@ Appendix: sample user flow
 - [x] Hallucinated claims without solid sources
 - [x] Cost spikes from heavy rendering/search
 - [x] Success Metrics
-- [ ] Adoption: % of users who create >=2 sessions
+- [x] Adoption: % of users who create >=2 sessions
 - [ ] Quality: user rating >=4/5 on infographic usefulness
 - [ ] Latency: end-to-end research + render < 90s (P50)
 - [ ] Provenance: 90% of claims have at least one source link

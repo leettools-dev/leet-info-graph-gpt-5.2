@@ -11,16 +11,6 @@
       "branch": null
     },
     {
-      "id": "adoption-of-users-who-create-2-sessions",
-      "content": "Adoption: % of users who create >=2 sessions",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "quality-user-rating-4-5-on-infographic-usefulness",
       "content": "Quality: user rating >=4/5 on infographic usefulness",
       "status": "pending",
