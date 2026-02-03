@@ -28,3 +28,4 @@ class SourceOut(BaseModel):
     snippet: str | None = None
     fetched_at: datetime | None = None
     confidence: float | None = None
+    score: float | None = None

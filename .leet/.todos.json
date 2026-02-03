@@ -13,7 +13,7 @@
     {
       "id": "phase-3-advanced-layouts-tagging-exports-improved-source-scoring",
       "content": "Phase 3: Advanced layouts, tagging, exports, improved source scoring",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -142,7 +142,7 @@
     },
     {
       "id": "ask-summarize-current-ev-market-trends",
-      "content": "Ask: \u201cSummarize current EV market trends\u201d",
+      "content": "Ask: “Summarize current EV market trends”",
       "status": "completed",
       "background": null,
       "dependencies": [],
@@ -169,16 +169,6 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
-    },
-    {
-      "id": "metrics-tracking",
-      "content": "metrics-tracking",
-      "status": "completed",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": "main#feature#todo-store-sync"
     }
   ]
 }

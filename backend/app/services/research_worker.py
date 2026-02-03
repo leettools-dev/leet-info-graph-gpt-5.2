@@ -51,6 +51,7 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
                 url=ing.url,
                 snippet=ing.snippet or h.snippet,
                 confidence=1.0,
+                score=None,
                 fetched_at=datetime.utcnow(),
             )
         )

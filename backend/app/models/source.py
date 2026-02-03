@@ -22,5 +22,6 @@ class Source(Base):
         DateTime(timezone=True), nullable=True
     )
     confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    score: Mapped[float | None] = mapped_column(Float, nullable=True)
 
     session = relationship("ResearchSession", back_populates="sources")
