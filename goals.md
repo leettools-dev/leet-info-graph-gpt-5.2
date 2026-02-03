@@ -123,7 +123,7 @@ Appendix: sample user flow
 - [ ] Architecture
 - [x] Frontend: SPA (chat, history, detail pages)
 - [x] Backend API: auth, session CRUD, job orchestration
-- [ ] Search/ingest: web fetch + source parser + summarizer
+- [x] Search/ingest: web fetch + source parser + summarizer
 - [ ] Infographic generator: template-based layout + chart rendering
 - [ ] Storage: relational DB for users/sessions; object storage for images
 - [ ] Queue/worker: async research + rendering jobs

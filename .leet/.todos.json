@@ -379,16 +379,6 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
-    },
-    {
-      "id": "search-ingest-web-fetch-source-parser-summarizer",
-      "content": "Search/ingest: web fetch + source parser + summarizer",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
     }
   ]
 }
