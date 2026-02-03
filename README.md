@@ -43,7 +43,7 @@ See .leet/.todos.json for the current development status.
 
 ```bash
 cd backend
-pytest
+python3 -m pytest
 ```
 
 ### Frontend
