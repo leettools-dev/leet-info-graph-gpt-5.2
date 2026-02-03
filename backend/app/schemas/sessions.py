@@ -4,6 +4,8 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
+from app.schemas.provenance import ClaimOut
+
 
 class MessageOut(BaseModel):
     id: int
@@ -26,6 +28,7 @@ class InfographicOut(BaseModel):
     image_url: str
     layout_meta: dict
     created_at: datetime
+    claims: list["ClaimOut"] = []
 
 
 class ResearchSessionCreate(BaseModel):

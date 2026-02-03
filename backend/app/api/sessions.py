@@ -74,6 +74,7 @@ async def export_session_json(
                 "id": session.infographic.id,
                 "image_url": session.infographic.image_url,
                 "layout_meta": session.infographic.layout_meta,
+                "claims": session.infographic.layout_meta.get("claims", []),
                 "created_at": session.infographic.created_at.isoformat(),
             }
             if session.infographic
@@ -178,12 +179,25 @@ async def generate_infographic(
     if not bullets:
         bullets = ["Add sources to generate richer results."]
 
+    claims = []
+    for idx, bullet in enumerate(bullets[:8]):
+        # MVP provenance mapping: each claim references the top 1-2 sources.
+        # This is intentionally simple but ensures *per-claim* traceability.
+        claims.append(
+            {
+                "id": f"c{idx+1}",
+                "text": bullet,
+                "source_ids": [s["source_id"] for s in sources_meta[: min(2, len(sources_meta))]],
+            }
+        )
+
     layout_meta = {
         "title": title,
         "key_bullets": bullets,
+        "claims": claims,
         "sources": sources_meta,
         "generated_by": "mvp-svg-template",
-        "version": 1,
+        "version": 2,
     }
 
     # Render a basic SVG (stored as a data URL for now).
@@ -234,6 +248,7 @@ async def generate_infographic(
         image_url=infographic.image_url,
         layout_meta=infographic.layout_meta,
         created_at=infographic.created_at,
+        claims=infographic.layout_meta.get("claims", []),
     )
 
 
@@ -330,6 +345,7 @@ async def get_session(
                 "id": session.infographic.id,
                 "image_url": session.infographic.image_url,
                 "layout_meta": session.infographic.layout_meta,
+                "claims": session.infographic.layout_meta.get("claims", []),
                 "created_at": session.infographic.created_at,
             }
             if session.infographic
