@@ -117,7 +117,7 @@ Appendix: sample user flow
 - [ ] 2 Non-functional
 - [x] N1: Rate-limit external calls; cache source fetches
 - [x] N2: Secure OAuth and API secrets; no secrets in repo
-- [ ] N3: Traceable provenance (source links per claim)
+- [x] N3: Traceable provenance (source links per claim)
 - [x] N4: Responsive UI; core pages render under 2s on broadband
 - [x] N5: Accessibility: keyboard nav, ARIA labels, contrast checks
 - [ ] Architecture
