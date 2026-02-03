@@ -97,14 +97,14 @@ Appendix: sample user flow
 ## Requirements
 
 - [x] Purpose
-- [ ] Scope
+- [x] Scope
 - [x] Input: natural-language research prompt
 - [x] Output: generated infographic (image + metadata), supporting sources, and a saved “research session”
-- [ ] Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing
+- [x] Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing
 - [x] Users
-- [ ] Students and educators
-- [ ] Product/market researchers
-- [ ] Knowledge workers who need quick visual summaries
+- [x] Students and educators
+- [x] Product/market researchers
+- [x] Knowledge workers who need quick visual summaries
 - [ ] Requirements
 - [ ] 1 Functional
 - [x] F1: Gmail OAuth login and account management
@@ -120,41 +120,41 @@ Appendix: sample user flow
 - [x] N3: Traceable provenance (source links per claim)
 - [x] N4: Responsive UI; core pages render under 2s on broadband
 - [x] N5: Accessibility: keyboard nav, ARIA labels, contrast checks
-- [ ] Architecture
+- [x] Architecture
 - [x] Frontend: SPA (chat, history, detail pages)
 - [x] Backend API: auth, session CRUD, job orchestration
 - [x] Search/ingest: web fetch + source parser + summarizer
-- [ ] Infographic generator: template-based layout + chart rendering
-- [ ] Storage: relational DB for users/sessions; object storage for images
-- [ ] Queue/worker: async research + rendering jobs
-- [ ] Data Model
-- [ ] User: id, email, name, created_at
-- [ ] ResearchSession: id, user_id, prompt, status, created_at
-- [ ] Source: id, session_id, title, url, snippet, fetched_at, confidence
-- [ ] Infographic: id, session_id, image_url, layout_meta, created_at
-- [ ] Message: id, session_id, role, content, created_at
-- [ ] Implementation Plan
-- [ ] Phase 1: OAuth login, chat UI, basic backend CRUD, search + source list
-- [ ] Phase 2: Infographic generation MVP (static template + charts), session save
-- [ ] Phase 3: Advanced layouts, tagging, exports, improved source scoring
-- [ ] Risks
+- [x] Infographic generator: template-based layout + chart rendering
+- [x] Storage: relational DB for users/sessions; object storage for images
+- [x] Queue/worker: async research + rendering jobs
+- [x] Data Model
+- [x] User: id, email, name, created_at
+- [x] ResearchSession: id, user_id, prompt, status, created_at
+- [x] Source: id, session_id, title, url, snippet, fetched_at, confidence
+- [x] Infographic: id, session_id, image_url, layout_meta, created_at
+- [x] Message: id, session_id, role, content, created_at
+- [x] Implementation Plan
+- [x] Phase 1: OAuth login, chat UI, basic backend CRUD, search + source list
+- [x] Phase 2: Infographic generation MVP (static template + charts), session save
+- [x] Phase 3: Advanced layouts, tagging, exports, improved source scoring
+- [x] Risks
 - [ ] Web content quality and reliability
 - [ ] Rate limits or blocking on sources
 - [ ] Hallucinated claims without solid sources
 - [ ] Cost spikes from heavy rendering/search
-- [ ] Success Metrics
+- [x] Success Metrics
 - [ ] Adoption: % of users who create >=2 sessions
 - [ ] Quality: user rating >=4/5 on infographic usefulness
 - [ ] Latency: end-to-end research + render < 90s (P50)
 - [ ] Provenance: 90% of claims have at least one source link
-- [ ] Next Steps
-- [ ] Confirm OAuth scope and UI flows
-- [ ] Define infographic templates and chart types
-- [ ] Implement search ingest and caching strategy
-- [ ] Sign in with Google
-- [ ] Ask: “Summarize current EV market trends”
-- [ ] Review sources + infographic
-- [ ] Browse past sessions in History
+- [x] Next Steps
+- [x] Confirm OAuth scope and UI flows
+- [x] Define infographic templates and chart types
+- [x] Implement search ingest and caching strategy
+- [x] Sign in with Google
+- [x] Ask: “Summarize current EV market trends”
+- [x] Review sources + infographic
+- [x] Browse past sessions in History
 
 ## Acceptance Criteria
 
