@@ -33,6 +33,8 @@ export INFOGRAPH_MEDIA_BASE_URL=http://localhost:8000/media
 
 
 - **Relational DB + object storage (dev/MVP)**: Sessions and related entities persist in SQLite via async SQLAlchemy. Generated infographics are written to local `media/` and served as static URLs under `/media/...` (stand-in for S3/GCS).
+
+- **Export**: download full research session data as JSON (`GET /api/sessions/{id}/export.json`) and export the generated infographic as SVG (`GET /api/sessions/{id}/infographic.svg`). The frontend uses these endpoints to download files with auth cookies.
 ## Getting Started
 
 ### Prerequisites
