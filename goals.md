@@ -118,8 +118,8 @@ Appendix: sample user flow
 - [x] N1: Rate-limit external calls; cache source fetches
 - [x] N2: Secure OAuth and API secrets; no secrets in repo
 - [ ] N3: Traceable provenance (source links per claim)
-- [ ] N4: Responsive UI; core pages render under 2s on broadband
-- [ ] N5: Accessibility: keyboard nav, ARIA labels, contrast checks
+- [x] N4: Responsive UI; core pages render under 2s on broadband
+- [x] N5: Accessibility: keyboard nav, ARIA labels, contrast checks
 - [ ] Architecture
 - [ ] Frontend: SPA (chat, history, detail pages)
 - [ ] Backend API: auth, session CRUD, job orchestration

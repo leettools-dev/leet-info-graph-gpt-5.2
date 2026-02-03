@@ -54,6 +54,12 @@ npm test
 ```
 
 
+
+### Frontend
+
+- Run unit tests: `cd frontend && npm test`
+- Run lint (includes basic accessibility rules via `eslint-plugin-jsx-a11y`): `cd frontend && npm run lint`
+
 ## License
 
 MIT

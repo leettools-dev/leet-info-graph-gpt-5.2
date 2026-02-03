@@ -439,16 +439,6 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
-    },
-    {
-      "id": "n5-accessibility-keyboard-nav-aria-labels-contrast-checks",
-      "content": "N5: Accessibility: keyboard nav, ARIA labels, contrast checks",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
     }
   ]
 }
