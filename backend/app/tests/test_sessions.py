@@ -40,7 +40,7 @@ async def test_create_and_get_session_authenticated(client):
     r5 = await client.post(f"/api/sessions/{sid}/infographic")
     assert r5.status_code == 201
     info = r5.json()
-    assert info["image_url"].startswith("data:image/svg+xml")
+    assert info["image_url"].startswith("http")
     assert info["layout_meta"]["title"]
 
     # Detail now includes infographic
@@ -48,7 +48,7 @@ async def test_create_and_get_session_authenticated(client):
     assert r6.status_code == 200
     detail2 = r6.json()
     assert detail2["infographic"] is not None
-    assert detail2["infographic"]["image_url"].startswith("data:image/svg+xml")
+    assert detail2["infographic"]["image_url"].startswith("http")
 
     # Export JSON
     r7 = await client.get(f"/api/sessions/{sid}/export.json")
