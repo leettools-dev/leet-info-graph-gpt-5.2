@@ -138,7 +138,7 @@ Appendix: sample user flow
 - [x] Phase 2: Infographic generation MVP (static template + charts), session save
 - [x] Phase 3: Advanced layouts, tagging, exports, improved source scoring
 - [x] Risks
-- [ ] Web content quality and reliability
+- [x] Web content quality and reliability
 - [ ] Rate limits or blocking on sources
 - [ ] Hallucinated claims without solid sources
 - [ ] Cost spikes from heavy rendering/search

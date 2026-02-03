@@ -76,8 +76,9 @@ class HTTPSourceFetcher:
         if cached is not None:
             return cached
 
-        if not self._rate_limiter.allow():
-            raise FetchError("Fetch rate limit exceeded")
+        # When under pressure, wait instead of failing fast; this reduces
+        # user-visible errors when upstream providers temporarily throttle.
+        await self._rate_limiter.acquire()
 
         started = time.time()
         try:

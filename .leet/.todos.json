@@ -11,19 +11,9 @@
       "branch": null
     },
     {
-      "id": "web-content-quality-and-reliability",
-      "content": "Web content quality and reliability",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "rate-limits-or-blocking-on-sources",
       "content": "Rate limits or blocking on sources",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
