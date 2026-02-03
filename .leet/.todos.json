@@ -1,16 +1,6 @@
 {
   "todos": [
     {
-      "id": "students-and-educators",
-      "content": "Students and educators",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "product-market-researchers",
       "content": "Product/market researchers",
       "status": "pending",
@@ -73,16 +63,6 @@
     {
       "id": "infographic-generator-template-based-layout-chart-rendering",
       "content": "Infographic generator: template-based layout + chart rendering",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
-      "content": "Storage: relational DB for users/sessions; object storage for images",
       "status": "pending",
       "background": null,
       "dependencies": [],
@@ -374,6 +354,26 @@
       "id": "browse-past-sessions-in-history",
       "content": "Browse past sessions in History",
       "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "students-and-educators",
+      "content": "Students and educators",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
+      "content": "Storage: relational DB for users/sessions; object storage for images",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],

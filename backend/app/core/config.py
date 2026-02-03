@@ -13,10 +13,17 @@ class Settings(BaseSettings):
 
     # Security
     # IMPORTANT: set INFOGRAPH_SECRET_KEY in all non-dev environments.
-    secret_key: str
+    # For tests, a default is provided so importing modules doesn't require env wiring.
+    secret_key: str = "dev-insecure-change-me"
 
     # Database
     database_url: str = "sqlite+aiosqlite:///./infograph.db"
+
+    # Storage
+    # If set, generated infographic images are written under this directory.
+    # In production, replace with object storage (S3/GCS) and store only URLs.
+    media_root: str = "./media"
+    media_base_url: str = "http://localhost:8000/media"
 
     # OAuth (Google)
     google_client_id: str | None = None

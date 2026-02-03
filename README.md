@@ -18,6 +18,19 @@ generates an infographic, and provides...
 
 - **Source ingest pipeline (fetch + parse + summarize)**: `POST /api/ingest/sessions/{session_id}` fetches saved source URLs, extracts title/text, generates a deterministic summary, and fills `Source.snippet` + updates session status to `ingested`.
 
+
+### Storage (MVP)
+
+- Infographic SVGs are now saved to local disk under `INFOGRAPH_MEDIA_ROOT` (default: `./media`) and served via `/media/...`.
+- The infographic record stores a URL (`INFOGRAPH_MEDIA_BASE_URL`, default: `http://localhost:8000/media`) rather than an inline data URL.
+
+**Config**
+
+```bash
+export INFOGRAPH_MEDIA_ROOT=./media
+export INFOGRAPH_MEDIA_BASE_URL=http://localhost:8000/media
+```
+
 ## Getting Started
 
 ### Prerequisites
