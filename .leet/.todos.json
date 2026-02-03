@@ -3,7 +3,7 @@
     {
       "id": "phase-1-oauth-login-chat-ui-basic-backend-crud-search-source-list",
       "content": "Phase 1: OAuth login, chat UI, basic backend CRUD, search + source list",
-      "status": "in_progress",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -113,7 +113,7 @@
     {
       "id": "confirm-oauth-scope-and-ui-flows",
       "content": "Confirm OAuth scope and UI flows",
-      "status": "pending",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -123,7 +123,7 @@
     {
       "id": "define-infographic-templates-and-chart-types",
       "content": "Define infographic templates and chart types",
-      "status": "pending",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -133,7 +133,7 @@
     {
       "id": "implement-search-ingest-and-caching-strategy",
       "content": "Implement search ingest and caching strategy",
-      "status": "pending",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -143,7 +143,7 @@
     {
       "id": "sign-in-with-google",
       "content": "Sign in with Google",
-      "status": "pending",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -153,7 +153,7 @@
     {
       "id": "ask-summarize-current-ev-market-trends",
       "content": "Ask: \u201cSummarize current EV market trends\u201d",
-      "status": "pending",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -163,7 +163,7 @@
     {
       "id": "review-sources-infographic",
       "content": "Review sources + infographic",
-      "status": "pending",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
@@ -173,12 +173,22 @@
     {
       "id": "browse-past-sessions-in-history",
       "content": "Browse past sessions in History",
-      "status": "pending",
+      "status": "completed",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "metrics-tracking",
+      "content": "metrics-tracking",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": "main#feature#metrics-tracking"
     }
   ]
 }
