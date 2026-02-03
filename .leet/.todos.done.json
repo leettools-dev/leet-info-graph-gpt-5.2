@@ -129,6 +129,16 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "n4-responsive-ui-core-pages-render-under-2s-on-broadband",
+      "content": "N4: Responsive UI; core pages render under 2s on broadband",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
