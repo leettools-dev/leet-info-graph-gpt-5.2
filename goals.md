@@ -108,9 +108,9 @@ Appendix: sample user flow
 - [ ] Requirements
 - [ ] 1 Functional
 - [x] F1: Gmail OAuth login and account management
-- [ ] F2: Chat UI to submit research prompts and follow-ups
+- [x] F2: Chat UI to submit research prompts and follow-ups
 - [x] F3: Web search pipeline to collect sources; show source list
-- [ ] F4: Generate infographic (title, key stats, bullets, charts, references)
+- [x] F4: Generate infographic (title, key stats, bullets, charts, references)
 - [ ] F5: Save each research session with prompt, sources, and infographic
 - [ ] F6: History view with filters (topic, date, tags) and detail page
 - [ ] F7: Export infographic (PNG/SVG) and session data (JSON)
