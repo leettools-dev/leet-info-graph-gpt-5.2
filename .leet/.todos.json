@@ -1,0 +1,535 @@
+{
+  "todos": [
+    {
+      "id": "purpose",
+      "content": "Purpose",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "scope",
+      "content": "Scope",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "input-natural-language-research-prompt",
+      "content": "Input: natural-language research prompt",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "output-generated-infographic-image-metadata-supporting-sources-and-a-saved-research-session",
+      "content": "Output: generated infographic (image + metadata), supporting sources, and a saved \u201cresearch session\u201d",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "core-oauth-login-chat-ui-web-search-summarization-infographic-generation-history-browsing",
+      "content": "Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "users",
+      "content": "Users",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "students-and-educators",
+      "content": "Students and educators",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "product-market-researchers",
+      "content": "Product/market researchers",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "knowledge-workers-who-need-quick-visual-summaries",
+      "content": "Knowledge workers who need quick visual summaries",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "requirements",
+      "content": "Requirements",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "1-functional",
+      "content": "1 Functional",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "f1-gmail-oauth-login-and-account-management",
+      "content": "F1: Gmail OAuth login and account management",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "f2-chat-ui-to-submit-research-prompts-and-follow-ups",
+      "content": "F2: Chat UI to submit research prompts and follow-ups",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "f3-web-search-pipeline-to-collect-sources-show-source-list",
+      "content": "F3: Web search pipeline to collect sources; show source list",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "f4-generate-infographic-title-key-stats-bullets-charts-references",
+      "content": "F4: Generate infographic (title, key stats, bullets, charts, references)",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "f5-save-each-research-session-with-prompt-sources-and-infographic",
+      "content": "F5: Save each research session with prompt, sources, and infographic",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "f6-history-view-with-filters-topic-date-tags-and-detail-page",
+      "content": "F6: History view with filters (topic, date, tags) and detail page",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "f7-export-infographic-png-svg-and-session-data-json",
+      "content": "F7: Export infographic (PNG/SVG) and session data (JSON)",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "2-non-functional",
+      "content": "2 Non-functional",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "n1-rate-limit-external-calls-cache-source-fetches",
+      "content": "N1: Rate-limit external calls; cache source fetches",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "n2-secure-oauth-and-api-secrets-no-secrets-in-repo",
+      "content": "N2: Secure OAuth and API secrets; no secrets in repo",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "n3-traceable-provenance-source-links-per-claim",
+      "content": "N3: Traceable provenance (source links per claim)",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "n4-responsive-ui-core-pages-render-under-2s-on-broadband",
+      "content": "N4: Responsive UI; core pages render under 2s on broadband",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "n5-accessibility-keyboard-nav-aria-labels-contrast-checks",
+      "content": "N5: Accessibility: keyboard nav, ARIA labels, contrast checks",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "architecture",
+      "content": "Architecture",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "frontend-spa-chat-history-detail-pages",
+      "content": "Frontend: SPA (chat, history, detail pages)",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "backend-api-auth-session-crud-job-orchestration",
+      "content": "Backend API: auth, session CRUD, job orchestration",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "search-ingest-web-fetch-source-parser-summarizer",
+      "content": "Search/ingest: web fetch + source parser + summarizer",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "infographic-generator-template-based-layout-chart-rendering",
+      "content": "Infographic generator: template-based layout + chart rendering",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
+      "content": "Storage: relational DB for users/sessions; object storage for images",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "queue-worker-async-research-rendering-jobs",
+      "content": "Queue/worker: async research + rendering jobs",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "data-model",
+      "content": "Data Model",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "user-id-email-name-created-at",
+      "content": "User: id, email, name, created_at",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "researchsession-id-user-id-prompt-status-created-at",
+      "content": "ResearchSession: id, user_id, prompt, status, created_at",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "source-id-session-id-title-url-snippet-fetched-at-confidence",
+      "content": "Source: id, session_id, title, url, snippet, fetched_at, confidence",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "infographic-id-session-id-image-url-layout-meta-created-at",
+      "content": "Infographic: id, session_id, image_url, layout_meta, created_at",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "message-id-session-id-role-content-created-at",
+      "content": "Message: id, session_id, role, content, created_at",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "implementation-plan",
+      "content": "Implementation Plan",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "phase-1-oauth-login-chat-ui-basic-backend-crud-search-source-list",
+      "content": "Phase 1: OAuth login, chat UI, basic backend CRUD, search + source list",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "phase-2-infographic-generation-mvp-static-template-charts-session-save",
+      "content": "Phase 2: Infographic generation MVP (static template + charts), session save",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "phase-3-advanced-layouts-tagging-exports-improved-source-scoring",
+      "content": "Phase 3: Advanced layouts, tagging, exports, improved source scoring",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "risks",
+      "content": "Risks",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "web-content-quality-and-reliability",
+      "content": "Web content quality and reliability",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "rate-limits-or-blocking-on-sources",
+      "content": "Rate limits or blocking on sources",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "hallucinated-claims-without-solid-sources",
+      "content": "Hallucinated claims without solid sources",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "cost-spikes-from-heavy-rendering-search",
+      "content": "Cost spikes from heavy rendering/search",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "success-metrics",
+      "content": "Success Metrics",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "adoption-of-users-who-create-2-sessions",
+      "content": "Adoption: % of users who create >=2 sessions",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "quality-user-rating-4-5-on-infographic-usefulness",
+      "content": "Quality: user rating >=4/5 on infographic usefulness",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "latency-end-to-end-research-render-90s-p50",
+      "content": "Latency: end-to-end research + render < 90s (P50)",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "provenance-90-of-claims-have-at-least-one-source-link",
+      "content": "Provenance: 90% of claims have at least one source link",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "next-steps",
+      "content": "Next Steps",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "confirm-oauth-scope-and-ui-flows",
+      "content": "Confirm OAuth scope and UI flows",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "define-infographic-templates-and-chart-types",
+      "content": "Define infographic templates and chart types",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "implement-search-ingest-and-caching-strategy",
+      "content": "Implement search ingest and caching strategy",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "sign-in-with-google",
+      "content": "Sign in with Google",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "ask-summarize-current-ev-market-trends",
+      "content": "Ask: \u201cSummarize current EV market trends\u201d",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "review-sources-infographic",
+      "content": "Review sources + infographic",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    },
+    {
+      "id": "browse-past-sessions-in-history",
+      "content": "Browse past sessions in History",
+      "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null
+    }
+  ]
+}
