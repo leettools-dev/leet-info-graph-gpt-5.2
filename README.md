@@ -31,6 +31,12 @@ generates an infographic, and provides...
 - **Google OAuth callback (backend)**: `GET /api/auth/google/callback?code=...` exchanges the authorization code for Google OIDC userinfo, upserts a local User, and sets a signed `session` cookie.
   - Config via env vars: `INFOGRAPH_GOOGLE_CLIENT_ID`, `INFOGRAPH_GOOGLE_CLIENT_SECRET`, `INFOGRAPH_GOOGLE_REDIRECT_URI`, `INFOGRAPH_COOKIE_SECURE`.
   - Note: `state`/CSRF validation is not yet implemented (planned hardening item).
+
+- **History view with filters (topic, tag, date)**: In the UI, use the History panel filters to narrow sessions by:
+  - Topic (substring match on prompt)
+  - Tag (MVP: looks for `#tag` in the prompt)
+  - From/To date (local day boundaries)
+
 ## Getting Started
 
 ### Prerequisites

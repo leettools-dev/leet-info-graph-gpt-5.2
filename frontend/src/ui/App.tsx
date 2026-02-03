@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { applyHistoryFilters } from './historyFilter'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:8000'
 
@@ -48,15 +49,16 @@ export function App() {
   const [selectedSession, setSelectedSession] = useState<SessionDetail | null>(null)
   const [prompt, setPrompt] = useState('')
   const [q, setQ] = useState('')
+  const [tag, setTag] = useState('')
+  const [fromDate, setFromDate] = useState('')
+  const [toDate, setToDate] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
   const filteredSessions = useMemo(() => {
     if (!sessions) return sessions
-    const qq = q.trim().toLowerCase()
-    if (!qq) return sessions
-    return sessions.filter((s) => s.prompt.toLowerCase().includes(qq))
-  }, [sessions, q])
+    return applyHistoryFilters(sessions, { topic: q, tag, fromDate, toDate })
+  }, [sessions, q, tag, fromDate, toDate])
 
   async function loadSessions() {
     setError(null)
@@ -213,15 +215,44 @@ export function App() {
         <section aria-label="History">
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
             <h2 style={{ margin: 0 }}>History</h2>
-            <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-              <span>Filter</span>
-              <input
-                aria-label="Filter history"
-                value={q}
-                onChange={(e) => setQ(e.target.value)}
-                placeholder="topic…"
-              />
-            </label>
+            <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+              <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <span>Topic</span>
+                <input
+                  aria-label="Filter history by topic"
+                  value={q}
+                  onChange={(e) => setQ(e.target.value)}
+                  placeholder="topic…"
+                />
+              </label>
+              <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <span>Tag</span>
+                <input
+                  aria-label="Filter history by tag"
+                  value={tag}
+                  onChange={(e) => setTag(e.target.value)}
+                  placeholder="#ev"
+                />
+              </label>
+              <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <span>From</span>
+                <input
+                  aria-label="Filter history from date"
+                  type="date"
+                  value={fromDate}
+                  onChange={(e) => setFromDate(e.target.value)}
+                />
+              </label>
+              <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <span>To</span>
+                <input
+                  aria-label="Filter history to date"
+                  type="date"
+                  value={toDate}
+                  onChange={(e) => setToDate(e.target.value)}
+                />
+              </label>
+            </div>
           </div>
 
           {sessions === null ? (
