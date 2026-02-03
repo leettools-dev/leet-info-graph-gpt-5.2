@@ -37,6 +37,16 @@ generates an infographic, and provides...
   - Tag (MVP: looks for `#tag` in the prompt)
   - From/To date (local day boundaries)
 
+
+### Export research sessions (F7)
+
+Backend now supports exporting:
+
+- **Session data (JSON)**: `GET /api/sessions/{session_id}/export.json`
+- **Infographic (SVG)**: `GET /api/sessions/{session_id}/infographic.svg`
+
+Both endpoints require authentication and return `Content-Disposition: attachment` for the SVG.
+
 ## Getting Started
 
 ### Prerequisites

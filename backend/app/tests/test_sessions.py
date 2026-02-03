@@ -49,3 +49,18 @@ async def test_create_and_get_session_authenticated(client):
     detail2 = r6.json()
     assert detail2["infographic"] is not None
     assert detail2["infographic"]["image_url"].startswith("data:image/svg+xml")
+
+    # Export JSON
+    r7 = await client.get(f"/api/sessions/{sid}/export.json")
+    assert r7.status_code == 200
+    exported = r7.json()
+    assert exported["session"]["id"] == sid
+    assert exported["session"]["prompt"] == "test prompt"
+    assert isinstance(exported["messages"], list)
+
+    # Export SVG
+    r8 = await client.get(f"/api/sessions/{sid}/infographic.svg")
+    assert r8.status_code == 200
+    assert r8.headers["content-type"].startswith("image/svg+xml")
+    assert "content-disposition" in {k.lower(): v for k, v in r8.headers.items()}
+    assert r8.text.startswith("<svg")

@@ -89,6 +89,16 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "f6-history-view-with-filters-topic-date-tags-and-detail-page",
+      "content": "F6: History view with filters (topic, date, tags) and detail page",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
