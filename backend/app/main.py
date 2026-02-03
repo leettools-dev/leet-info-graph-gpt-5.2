@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.api import auth, ingest, jobs, search, sessions
+from app.api import auth, ingest, jobs, metrics, search, sessions
 from app.core.config import settings
 from app.db.base import Base
 from app.db.session import engine
@@ -53,3 +53,4 @@ app.include_router(sessions.router, prefix="/api")
 app.include_router(search.router, prefix="/api")
 app.include_router(ingest.router, prefix="/api")
 app.include_router(jobs.router, prefix="/api")
+app.include_router(metrics.router, prefix="/api")
