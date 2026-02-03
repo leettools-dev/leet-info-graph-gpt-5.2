@@ -19,6 +19,26 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": "main#feature#todo-sync"
+    },
+    {
+      "id": "purpose",
+      "content": "Purpose",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "input-natural-language-research-prompt",
+      "content": "Input: natural-language research prompt",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
