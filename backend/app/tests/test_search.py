@@ -32,7 +32,11 @@ async def test_search_attaches_sources(monkeypatch, client):
                 )(),
             ][:max_results]
 
-    monkeypatch.setattr(search_api, "DuckDuckGoHTMLSearchClient", lambda: FakeClient())
+    monkeypatch.setattr(
+        search_api,
+        "DuckDuckGoHTMLSearchClient",
+        lambda **_: FakeClient(),
+    )
 
     r = await client.get(
         "/api/auth/dev/login",

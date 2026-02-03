@@ -26,9 +26,16 @@ class SimpleTTLCache:
 
     This is intentionally small and process-local; it satisfies the MVP caching
     requirement and can later be replaced with Redis or a DB-backed cache.
+
+    Note: This cache is *not* a strict LRU. When full, it evicts an arbitrary key.
     """
 
     def __init__(self, ttl_seconds: int = 3600, max_items: int = 512) -> None:
+        if ttl_seconds <= 0:
+            raise ValueError("ttl_seconds must be > 0")
+        if max_items <= 0:
+            raise ValueError("max_items must be > 0")
+
         self.ttl_seconds = ttl_seconds
         self.max_items = max_items
         self._items: dict[str, tuple[float, Any]] = {}
@@ -52,10 +59,16 @@ class SimpleTTLCache:
 
 
 class TokenBucketRateLimiter:
-    """Simple token bucket rate limiter."""
+    """Simple in-process token bucket rate limiter.
+
+    This is a best-effort limiter meant to reduce upstream traffic.
+    """
 
     def __init__(self, rate_per_minute: int = 30) -> None:
-        self.capacity = max(1, rate_per_minute)
+        if rate_per_minute <= 0:
+            raise ValueError("rate_per_minute must be > 0")
+
+        self.capacity = rate_per_minute
         self.tokens = float(self.capacity)
         self.refill_rate_per_sec = self.capacity / 60.0
         self.last = time.time()
@@ -86,10 +99,17 @@ class DuckDuckGoHTMLSearchClient:
         http_client: httpx.AsyncClient | None = None,
         cache: SimpleTTLCache | None = None,
         rate_limiter: TokenBucketRateLimiter | None = None,
+        cache_ttl_seconds: int = 60 * 60,
+        cache_max_items: int = 512,
+        rate_per_minute: int = 20,
     ) -> None:
         self._http = http_client or httpx.AsyncClient(timeout=20)
-        self._cache = cache or SimpleTTLCache(ttl_seconds=60 * 60)
-        self._rate_limiter = rate_limiter or TokenBucketRateLimiter(rate_per_minute=20)
+        self._cache = cache or SimpleTTLCache(
+            ttl_seconds=cache_ttl_seconds, max_items=cache_max_items
+        )
+        self._rate_limiter = rate_limiter or TokenBucketRateLimiter(
+            rate_per_minute=rate_per_minute
+        )
 
     def _cache_key(self, query: str, max_results: int) -> str:
         raw = f"ddg:{query}:{max_results}".encode("utf-8")
