@@ -107,7 +107,7 @@ Appendix: sample user flow
 - [ ] Knowledge workers who need quick visual summaries
 - [ ] Requirements
 - [ ] 1 Functional
-- [ ] F1: Gmail OAuth login and account management
+- [x] F1: Gmail OAuth login and account management
 - [ ] F2: Chat UI to submit research prompts and follow-ups
 - [x] F3: Web search pipeline to collect sources; show source list
 - [ ] F4: Generate infographic (title, key stats, bullets, charts, references)
