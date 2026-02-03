@@ -74,6 +74,15 @@ npm test
 ```
 
 Note: in some environments `pytest`/`python` may not be on PATH; prefer `python3 -m pytest`.
+
+### Backend (from repo root)
+
+```bash
+python3 -m pytest
+```
+
+> Note: the repo root `pyproject.toml` config delegates pytest discovery to `backend/app/tests` so `pytest` works from the top-level.
+
 ## License
 
 MIT
