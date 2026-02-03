@@ -27,6 +27,15 @@ class LocalMediaStorage:
         self.media_root = Path(media_root)
         self.media_base_url = media_base_url.rstrip("/")
 
+    def resolve(self, rel_path: str) -> Path:
+        if not rel_path or rel_path.startswith("/"):
+            raise StorageError("rel_path must be a relative path")
+
+        abs_path = (self.media_root / rel_path).resolve()
+        if self.media_root.resolve() not in abs_path.parents and abs_path != self.media_root.resolve():
+            raise StorageError("rel_path escapes media_root")
+        return abs_path
+
     def save_bytes(self, *, rel_path: str, content: bytes) -> StoredObject:
         if not rel_path or rel_path.startswith("/"):
             raise StorageError("rel_path must be a relative path")
