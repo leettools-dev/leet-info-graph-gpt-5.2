@@ -1,19 +1,9 @@
 {
   "todos": [
     {
-      "id": "output-generated-infographic-image-metadata-supporting-sources-and-a-saved-research-session",
-      "content": "Output: generated infographic (image + metadata), supporting sources, and a saved \u201cresearch session\u201d",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "core-oauth-login-chat-ui-web-search-summarization-infographic-generation-history-browsing",
       "content": "Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],

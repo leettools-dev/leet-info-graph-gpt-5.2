@@ -20,5 +20,8 @@ class Settings(BaseSettings):
     # Frontend
     frontend_origin: str = "http://localhost:5173"
 
+    # Cookies
+    cookie_secure: bool = False
+
 
 settings = Settings()
