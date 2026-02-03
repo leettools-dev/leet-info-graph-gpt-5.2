@@ -9,7 +9,11 @@ from app.core.config import settings
 from app.db.session import get_db
 from app.models import User
 from app.services.auth import create_oauth_state, create_session_token, verify_oauth_state
-from app.services.google_oauth import exchange_code_for_userinfo
+from app.services.google_oauth import exchange_code_for_userinfo as _exchange_code_for_userinfo
+
+# NOTE: this alias exists so tests can monkeypatch `app.api.auth.exchange_code_for_userinfo`
+# without depending on internals of app.services.google_oauth.
+exchange_code_for_userinfo = _exchange_code_for_userinfo
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
