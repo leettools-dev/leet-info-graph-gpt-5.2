@@ -2,11 +2,16 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.responses import Response
 
 from app.core.config import settings
+import uuid
+from datetime import datetime
+
 from app.services.infographic import InfographicRenderer
+from app.services.jobs import Job
+from app.services.research_worker import run_research_and_render
 from app.services.storage import LocalMediaStorage
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -160,6 +165,50 @@ async def export_infographic_svg(
 
 
 @router.post(
+    "/{session_id}/run",
+    status_code=status.HTTP_202_ACCEPTED,
+)
+async def run_session_async(
+    session_id: int,
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
+    """Kick off an async research + render job for a session."""
+    res = await db.execute(
+        select(ResearchSession).where(
+            ResearchSession.id == session_id,
+            ResearchSession.user_id == user.id,
+        )
+    )
+    session = res.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    # Mark session running
+    session.status = "running"
+    await db.commit()
+
+    job_id = uuid.uuid4().hex
+
+    queue = getattr(request.app.state, "job_queue", None)
+    if queue is None:
+        raise HTTPException(status_code=500, detail="Job queue not configured")
+
+    async def _coro_factory() -> dict:
+        # Use the same DB session dependency. For an in-process queue, this is ok.
+        # For a real distributed worker, we'd open a fresh DB session.
+        return await run_research_and_render(session_id=session_id, db=db)
+
+    await queue.enqueue(
+        job=Job(job_id=job_id, kind="research_and_render", created_at=datetime.utcnow()),
+        coro_factory=_coro_factory,
+    )
+
+    return {"job_id": job_id, "session_id": session_id}
+
+
+@router.post(
     "/{session_id}/infographic",
     response_model=InfographicOut,
     status_code=status.HTTP_201_CREATED,
@@ -171,7 +220,7 @@ async def generate_infographic(
 ):
     """Generate and store a simple infographic for a session.
 
-    MVP implementation: creates a deterministic SVG based on session prompt and sources.
+    Synchronous endpoint kept for backwards compatibility and fast iteration.
     """
     res = await db.execute(
         select(ResearchSession).where(

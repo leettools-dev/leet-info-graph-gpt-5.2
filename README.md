@@ -35,6 +35,23 @@ export INFOGRAPH_MEDIA_BASE_URL=http://localhost:8000/media
 - **Relational DB + object storage (dev/MVP)**: Sessions and related entities persist in SQLite via async SQLAlchemy. Generated infographics are written to local `media/` and served as static URLs under `/media/...` (stand-in for S3/GCS).
 
 - **Export**: download full research session data as JSON (`GET /api/sessions/{id}/export.json`) and export the generated infographic as SVG (`GET /api/sessions/{id}/infographic.svg`). The frontend uses these endpoints to download files with auth cookies.
+
+- **Infographic generation (MVP SVG template):** backend renders a deterministic, template-based SVG infographic for a research session and stores it under `/media/sessions/<id>/infographic.svg`.
+  - Per-claim provenance is included in `layout_meta.claims[*].source_ids`.
+  - API: `POST /api/sessions/{id}/infographic` creates/updates the infographic; `GET /api/sessions/{id}/infographic.svg` exports it.
+
+
+- **Async research + rendering jobs (MVP in-process worker):** `POST /api/sessions/{id}/run` enqueues a background job that runs web search → source ingest → infographic render/save. Poll with `GET /api/jobs/{job_id}`.
+
+  Example:
+  ```bash
+  # enqueue
+  curl -X POST -b "session=<token>" http://localhost:8000/api/sessions/123/run
+
+  # poll
+  curl -b "session=<token>" http://localhost:8000/api/jobs/<job_id>
+  ```
+
 ## Getting Started
 
 ### Prerequisites

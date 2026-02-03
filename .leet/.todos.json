@@ -1,26 +1,6 @@
 {
   "todos": [
     {
-      "id": "infographic-generator-template-based-layout-chart-rendering",
-      "content": "Infographic generator: template-based layout + chart rendering",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "queue-worker-async-research-rendering-jobs",
-      "content": "Queue/worker: async research + rendering jobs",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "user-id-email-name-created-at",
       "content": "User: id, email, name, created_at",
       "status": "pending",

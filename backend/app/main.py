@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.api import auth, ingest, search, sessions
+from app.api import auth, ingest, jobs, search, sessions
 from app.core.config import settings
 from app.db.base import Base
 from app.db.session import engine
@@ -20,6 +20,12 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(title="Research Infograph Assistant API", lifespan=lifespan)
+
+# Minimal in-process queue/worker for async research + rendering jobs (MVP).
+# In production, replace with a durable queue + separate worker.
+from app.services.jobs import InProcessJobQueue
+
+app.state.job_queue = InProcessJobQueue()
 
 app.add_middleware(
     CORSMiddleware,
@@ -46,3 +52,4 @@ app.include_router(auth.router, prefix="/api")
 app.include_router(sessions.router, prefix="/api")
 app.include_router(search.router, prefix="/api")
 app.include_router(ingest.router, prefix="/api")
+app.include_router(jobs.router, prefix="/api")

@@ -349,6 +349,26 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "infographic-generator-template-based-layout-chart-rendering",
+      "content": "Infographic generator: template-based layout + chart rendering",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "queue-worker-async-research-rendering-jobs",
+      "content": "Queue/worker: async research + rendering jobs",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
