@@ -64,3 +64,17 @@ async def test_create_and_get_session_authenticated(tmp_path, monkeypatch):
         detail = r4.json()
         assert detail["prompt"] == "test prompt"
         assert detail["messages"][0]["role"] == "user"
+
+        # Generate infographic
+        r5 = await ac.post(f"/api/sessions/{sid}/infographic")
+        assert r5.status_code == 201
+        info = r5.json()
+        assert info["image_url"].startswith("data:image/svg+xml")
+        assert info["layout_meta"]["title"]
+
+        # Detail now includes infographic
+        r6 = await ac.get(f"/api/sessions/{sid}")
+        assert r6.status_code == 200
+        detail2 = r6.json()
+        assert detail2["infographic"] is not None
+        assert detail2["infographic"]["image_url"].startswith("data:image/svg+xml")
