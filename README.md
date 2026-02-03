@@ -18,7 +18,7 @@ generates an infographic, and provides...
 
 - Backend API scaffold (FastAPI) with SQLite storage and session CRUD endpoints.
 - Dev-only login endpoint to simulate OAuth during local development.
-- Minimal React SPA scaffold with prompt input and history list (uses API cookies).
+- Minimal React SPA scaffold with prompt input, history filtering, and session detail pane (messages, sources, infographic preview + exports) (uses API cookies).
 
 - Web search pipeline endpoint (MVP): `POST /api/search/sessions/{session_id}?query=...` attaches top results as Sources and updates session status.
 - Basic rate limiting + in-memory TTL cache for search results (process-local, replaceable with Redis later).
@@ -69,9 +69,6 @@ cd frontend
 npm test
 ```
 
-Note: the current frontend test script is a placeholder (prints "no tests yet").
-# Test instructions will be added
-```
 
 ## License
 

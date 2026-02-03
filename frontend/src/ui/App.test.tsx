@@ -10,4 +10,9 @@ describe('App', () => {
     const btn = screen.getByRole('button', { name: /submit prompt/i }) as HTMLButtonElement
     expect(btn.disabled).toBe(true)
   })
+
+  it('shows history filter input', () => {
+    render(<App />)
+    expect(screen.getAllByRole('textbox', { name: /filter history/i }).length).toBeGreaterThan(0)
+  })
 })

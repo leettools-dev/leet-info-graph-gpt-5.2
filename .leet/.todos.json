@@ -71,16 +71,6 @@
       "branch": null
     },
     {
-      "id": "f1-gmail-oauth-login-and-account-management",
-      "content": "F1: Gmail OAuth login and account management",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "f2-chat-ui-to-submit-research-prompts-and-follow-ups",
       "content": "F2: Chat UI to submit research prompts and follow-ups",
       "status": "pending",
