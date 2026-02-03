@@ -34,7 +34,14 @@ export function App() {
       body: JSON.stringify({ prompt })
     })
     if (!res.ok) {
-      setError(`Failed to create session (${res.status})`)
+      let detail: string | null = null
+      try {
+        const data = (await res.json()) as any
+        detail = typeof data?.detail === 'string' ? data.detail : null
+      } catch {
+        // ignore
+      }
+      setError(`Failed to create session (${res.status})${detail ? `: ${detail}` : ''}`)
       return
     }
     setPrompt('')
@@ -62,9 +69,19 @@ export function App() {
           style={{ flex: 1, padding: 8 }}
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+              void createSession()
+            }
+          }}
           placeholder="Ask for research..."
         />
-        <button aria-label="Submit prompt" onClick={() => void createSession()} disabled={!prompt.trim()}>
+        <button
+          aria-label="Submit prompt"
+          onClick={() => void createSession()}
+          disabled={prompt.trim().length < 3}
+          title="Send (Ctrl+Enter)"
+        >
           Send
         </button>
       </section>

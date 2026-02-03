@@ -22,6 +22,9 @@ generates an infographic, and provides...
 
 - Web search pipeline endpoint (MVP): `POST /api/search/sessions/{session_id}?query=...` attaches top results as Sources and updates session status.
 - Basic rate limiting + in-memory TTL cache for search results (process-local, replaceable with Redis later).
+
+- Natural-language prompt input validation (backend + UI): prompts must be non-empty, >= 3 chars, <= 4000 chars; UI disables send for short prompts and supports Ctrl/Cmd+Enter.
+
 ## Getting Started
 
 ### Prerequisites

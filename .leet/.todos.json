@@ -1,26 +1,6 @@
 {
   "todos": [
     {
-      "id": "purpose",
-      "content": "Purpose",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "input-natural-language-research-prompt",
-      "content": "Input: natural-language research prompt",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "output-generated-infographic-image-metadata-supporting-sources-and-a-saved-research-session",
       "content": "Output: generated infographic (image + metadata), supporting sources, and a saved \u201cresearch session\u201d",
       "status": "pending",

@@ -31,6 +31,16 @@ class InfographicOut(BaseModel):
 class ResearchSessionCreate(BaseModel):
     prompt: str
 
+    # Basic server-side validation to ensure we receive a natural-language prompt.
+    # Keep this lightweight for now; more advanced prompt constraints can be added later.
+    def model_post_init(self, __context):  # type: ignore[override]
+        if not self.prompt or not self.prompt.strip():
+            raise ValueError("prompt cannot be empty")
+        if len(self.prompt.strip()) < 3:
+            raise ValueError("prompt too short")
+        if len(self.prompt) > 4000:
+            raise ValueError("prompt too long")
+
 
 class ResearchSessionOut(BaseModel):
     id: int

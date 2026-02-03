@@ -96,9 +96,9 @@ Appendix: sample user flow
 
 ## Requirements
 
-- [ ] Purpose
+- [x] Purpose
 - [ ] Scope
-- [ ] Input: natural-language research prompt
+- [x] Input: natural-language research prompt
 - [ ] Output: generated infographic (image + metadata), supporting sources, and a saved “research session”
 - [ ] Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing
 - [ ] Users
