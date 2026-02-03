@@ -579,16 +579,6 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
-    },
-    {
-      "id": "f3-web-search-pipeline-to-collect-sources-show-source-list",
-      "content": "F3: Web search pipeline to collect sources; show source list",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
     }
   ]
 }

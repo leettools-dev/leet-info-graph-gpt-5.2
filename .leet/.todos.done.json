@@ -1,3 +1,14 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "f3-web-search-pipeline-to-collect-sources-show-source-list",
+      "content": "F3: Web search pipeline to collect sources; show source list",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    }
+  ]
 }
