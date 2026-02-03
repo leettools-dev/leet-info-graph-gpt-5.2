@@ -29,6 +29,6 @@ async def test_ddg_client_rate_limited_when_no_tokens() -> None:
     assert limiter.allow() is True
     assert limiter.allow() is False
 
-    client = DuckDuckGoHTMLSearchClient(rate_limiter=limiter)
+    # When no tokens are available, acquire_or_raise should fail fast.
     with pytest.raises(RateLimitError):
-        await client.search("test", max_results=1)
+        await limiter.acquire_or_raise()

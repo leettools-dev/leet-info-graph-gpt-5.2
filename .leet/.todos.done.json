@@ -469,6 +469,26 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "hallucinated-claims-without-solid-sources",
+      "content": "Hallucinated claims without solid sources",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "cost-spikes-from-heavy-rendering-search",
+      "content": "Cost spikes from heavy rendering/search",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
