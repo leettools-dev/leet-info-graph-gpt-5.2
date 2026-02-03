@@ -179,16 +179,6 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
-    },
-    {
-      "id": "message-id-session-id-role-content-created-at",
-      "content": "Message: id, session_id, role, content, created_at",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
     }
   ]
 }
