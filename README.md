@@ -15,6 +15,10 @@ generates an infographic, and provides...
 
 *Features will be documented here as they are implemented.*
 
+
+- Backend API scaffold (FastAPI) with SQLite storage and session CRUD endpoints.
+- Dev-only login endpoint to simulate OAuth during local development.
+- Minimal React SPA scaffold with prompt input and history list (uses API cookies).
 ## Getting Started
 
 ### Prerequisites

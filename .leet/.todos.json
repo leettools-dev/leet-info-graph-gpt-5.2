@@ -3,11 +3,12 @@
     {
       "id": "purpose",
       "content": "Purpose",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "scope",
@@ -16,7 +17,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "input-natural-language-research-prompt",
@@ -25,7 +27,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "output-generated-infographic-image-metadata-supporting-sources-and-a-saved-research-session",
@@ -34,7 +37,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "core-oauth-login-chat-ui-web-search-summarization-infographic-generation-history-browsing",
@@ -43,7 +47,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "users",
@@ -52,7 +57,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "students-and-educators",
@@ -61,7 +67,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "product-market-researchers",
@@ -70,7 +77,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "knowledge-workers-who-need-quick-visual-summaries",
@@ -79,7 +87,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "requirements",
@@ -88,7 +97,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "1-functional",
@@ -97,7 +107,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "f1-gmail-oauth-login-and-account-management",
@@ -106,7 +117,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "f2-chat-ui-to-submit-research-prompts-and-follow-ups",
@@ -115,7 +127,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "f3-web-search-pipeline-to-collect-sources-show-source-list",
@@ -124,7 +137,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "f4-generate-infographic-title-key-stats-bullets-charts-references",
@@ -133,7 +147,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "f5-save-each-research-session-with-prompt-sources-and-infographic",
@@ -142,7 +157,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "f6-history-view-with-filters-topic-date-tags-and-detail-page",
@@ -151,7 +167,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "f7-export-infographic-png-svg-and-session-data-json",
@@ -160,7 +177,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "2-non-functional",
@@ -169,7 +187,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "n1-rate-limit-external-calls-cache-source-fetches",
@@ -178,7 +197,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "n2-secure-oauth-and-api-secrets-no-secrets-in-repo",
@@ -187,7 +207,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "n3-traceable-provenance-source-links-per-claim",
@@ -196,7 +217,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "n4-responsive-ui-core-pages-render-under-2s-on-broadband",
@@ -205,7 +227,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "n5-accessibility-keyboard-nav-aria-labels-contrast-checks",
@@ -214,7 +237,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "architecture",
@@ -223,7 +247,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "frontend-spa-chat-history-detail-pages",
@@ -232,7 +257,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "backend-api-auth-session-crud-job-orchestration",
@@ -241,7 +267,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "search-ingest-web-fetch-source-parser-summarizer",
@@ -250,7 +277,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "infographic-generator-template-based-layout-chart-rendering",
@@ -259,7 +287,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
@@ -268,7 +297,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "queue-worker-async-research-rendering-jobs",
@@ -277,7 +307,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "data-model",
@@ -286,7 +317,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "user-id-email-name-created-at",
@@ -295,7 +327,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "researchsession-id-user-id-prompt-status-created-at",
@@ -304,7 +337,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "source-id-session-id-title-url-snippet-fetched-at-confidence",
@@ -313,7 +347,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "infographic-id-session-id-image-url-layout-meta-created-at",
@@ -322,7 +357,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "message-id-session-id-role-content-created-at",
@@ -331,7 +367,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "implementation-plan",
@@ -340,7 +377,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "phase-1-oauth-login-chat-ui-basic-backend-crud-search-source-list",
@@ -349,7 +387,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "phase-2-infographic-generation-mvp-static-template-charts-session-save",
@@ -358,7 +397,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "phase-3-advanced-layouts-tagging-exports-improved-source-scoring",
@@ -367,7 +407,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "risks",
@@ -376,7 +417,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "web-content-quality-and-reliability",
@@ -385,7 +427,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "rate-limits-or-blocking-on-sources",
@@ -394,7 +437,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "hallucinated-claims-without-solid-sources",
@@ -403,7 +447,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "cost-spikes-from-heavy-rendering-search",
@@ -412,7 +457,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "success-metrics",
@@ -421,7 +467,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "adoption-of-users-who-create-2-sessions",
@@ -430,7 +477,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "quality-user-rating-4-5-on-infographic-usefulness",
@@ -439,7 +487,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "latency-end-to-end-research-render-90s-p50",
@@ -448,7 +497,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "provenance-90-of-claims-have-at-least-one-source-link",
@@ -457,7 +507,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "next-steps",
@@ -466,7 +517,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "confirm-oauth-scope-and-ui-flows",
@@ -475,7 +527,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "define-infographic-templates-and-chart-types",
@@ -484,7 +537,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "implement-search-ingest-and-caching-strategy",
@@ -493,7 +547,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "sign-in-with-google",
@@ -502,7 +557,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "ask-summarize-current-ev-market-trends",
@@ -511,7 +567,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "review-sources-infographic",
@@ -520,7 +577,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     },
     {
       "id": "browse-past-sessions-in-history",
@@ -529,7 +587,8 @@
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],
-      "goal_id": null
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
