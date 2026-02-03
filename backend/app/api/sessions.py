@@ -109,12 +109,35 @@ async def export_infographic_svg(
 
     image_url: str = session.infographic.image_url
 
-    # If stored as an http(s) URL, redirect to the static file.
-    if image_url.startswith("http://") or image_url.startswith("https://"):
+    # If stored as a local media URL, read it from disk.
+    #
+    # Our MVP storage writes to settings.media_root and returns a URL under
+    # settings.media_base_url (often http://localhost:8000/media). During tests
+    # there's no external server to fetch from, so we map back to disk.
+    if image_url.startswith(settings.media_base_url.rstrip("/") + "/"):
+        rel = image_url[len(settings.media_base_url.rstrip("/")) + 1 :]
+        try:
+            storage = LocalMediaStorage(settings.media_root, settings.media_base_url)
+            path = storage.resolve(rel)
+        except ValueError as e:
+            raise HTTPException(status_code=500, detail=str(e))
+
+        try:
+            svg = path.read_bytes()
+        except FileNotFoundError:
+            raise HTTPException(status_code=404, detail="Infographic file missing")
+
         return Response(
-            status_code=307,
-            headers={"Location": image_url},
+            content=svg,
+            media_type="image/svg+xml",
+            headers={
+                "Content-Disposition": f"attachment; filename=infographic-session-{session.id}.svg"
+            },
         )
+
+    # Otherwise if it's an http(s) URL (e.g. remote object storage), redirect.
+    if image_url.startswith("http://") or image_url.startswith("https://"):
+        return Response(status_code=307, headers={"Location": image_url})
 
     # Backward compatibility: handle legacy data URLs.
     if not image_url.startswith("data:image/svg+xml"):

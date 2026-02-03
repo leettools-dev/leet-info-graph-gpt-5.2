@@ -139,32 +139,45 @@ export function App() {
     }
   }
 
-  function exportSessionJSON() {
+  async function exportSessionJSON() {
     if (!selectedSession) return
-    const blob = new Blob([JSON.stringify(selectedSession, null, 2)], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `session-${selectedSession.id}.json`
-    a.click()
-    URL.revokeObjectURL(url)
-  }
+    setError(null)
 
-  function exportInfographicSVG() {
-    if (!selectedSession?.infographic?.image_url) return
-    const imageUrl = selectedSession.infographic.image_url
-    if (!imageUrl.startsWith('data:image/svg+xml')) {
-      setError('Infographic export only supports SVG data URLs in MVP')
+    const url = `${API_BASE}/api/sessions/${selectedSession.id}/export.json`
+    const res = await fetch(url, { credentials: 'include' })
+    if (!res.ok) {
+      setError(`Failed to export session JSON (${res.status})`)
       return
     }
-    const svgText = decodeURIComponent(imageUrl.split(',')[1] ?? '')
-    const blob = new Blob([svgText], { type: 'image/svg+xml' })
-    const url = URL.createObjectURL(blob)
+
+    const blob = await res.blob()
+    const dlUrl = URL.createObjectURL(blob)
     const a = document.createElement('a')
-    a.href = url
+    a.href = dlUrl
+    a.download = `session-${selectedSession.id}.json`
+    a.click()
+    URL.revokeObjectURL(dlUrl)
+  }
+
+  async function exportInfographicSVG() {
+    if (!selectedSession) return
+    setError(null)
+
+    const url = `${API_BASE}/api/sessions/${selectedSession.id}/infographic.svg`
+    // Trigger download using fetch to include cookies.
+    const res = await fetch(url, { credentials: 'include' })
+    if (!res.ok) {
+      setError(`Failed to export infographic SVG (${res.status})`)
+      return
+    }
+
+    const blob = await res.blob()
+    const dlUrl = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = dlUrl
     a.download = `infographic-${selectedSession.id}.svg`
     a.click()
-    URL.revokeObjectURL(url)
+    URL.revokeObjectURL(dlUrl)
   }
 
   useEffect(() => {
@@ -292,12 +305,12 @@ export function App() {
           ) : (
             <div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 8, flexWrap: 'wrap' }}>
-                <button aria-label="Export session JSON" onClick={exportSessionJSON}>
+                <button aria-label="Export session JSON" onClick={() => void exportSessionJSON()}>
                   Export JSON
                 </button>
                 <button
                   aria-label="Export infographic SVG"
-                  onClick={exportInfographicSVG}
+                  onClick={() => void exportInfographicSVG()}
                   disabled={!selectedSession.infographic}
                 >
                   Export SVG
