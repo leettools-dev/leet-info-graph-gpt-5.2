@@ -13,44 +13,9 @@ generates an infographic, and provides...
 
 ## Features
 
-- **OAuth hardening (N2)**: Google OAuth now includes `state` generation and callback validation to protect against CSRF. The backend also requires `INFOGRAPH_SECRET_KEY` (no default secret in code) and supports loading configuration from a local `.env` file (ignored by git). See `backend/.env.example`.
-
-
-- **Source ingest pipeline (fetch + parse + summarize)**: `POST /api/ingest/sessions/{session_id}` fetches saved source URLs, extracts title/text, generates a deterministic summary, and fills `Source.snippet` + updates session status to `ingested`.
-
-
-### Storage (MVP)
-
-- Infographic SVGs are now saved to local disk under `INFOGRAPH_MEDIA_ROOT` (default: `./media`) and served via `/media/...`.
-- The infographic record stores a URL (`INFOGRAPH_MEDIA_BASE_URL`, default: `http://localhost:8000/media`) rather than an inline data URL.
-
-**Config**
-
-```bash
-export INFOGRAPH_MEDIA_ROOT=./media
-export INFOGRAPH_MEDIA_BASE_URL=http://localhost:8000/media
-```
-
-
-- **Relational DB + object storage (dev/MVP)**: Sessions and related entities persist in SQLite via async SQLAlchemy. Generated infographics are written to local `media/` and served as static URLs under `/media/...` (stand-in for S3/GCS).
-
-- **Export**: download full research session data as JSON (`GET /api/sessions/{id}/export.json`) and export the generated infographic as SVG (`GET /api/sessions/{id}/infographic.svg`). The frontend uses these endpoints to download files with auth cookies.
-
-- **Infographic generation (MVP SVG template):** backend renders a deterministic, template-based SVG infographic for a research session and stores it under `/media/sessions/<id>/infographic.svg`.
-  - Per-claim provenance is included in `layout_meta.claims[*].source_ids`.
-  - API: `POST /api/sessions/{id}/infographic` creates/updates the infographic; `GET /api/sessions/{id}/infographic.svg` exports it.
-
-
-- **Async research + rendering jobs (MVP in-process worker):** `POST /api/sessions/{id}/run` enqueues a background job that runs web search → source ingest → infographic render/save. Poll with `GET /api/jobs/{job_id}`.
-
-  Example:
-  ```bash
-  # enqueue
-  curl -X POST -b "session=<token>" http://localhost:8000/api/sessions/123/run
-
-  # poll
-  curl -b "session=<token>" http://localhost:8000/api/jobs/<job_id>
-  ```
+- **Infographic export (SVG) & session export (JSON):** Download a generated infographic as `infographic.svg` and export a full research session payload (session metadata, sources, messages, infographic metadata/claims) as `export.json`.
+  - `GET /api/sessions/{session_id}/infographic.svg`
+  - `GET /api/sessions/{session_id}/export.json`
 
 ## Getting Started
 
