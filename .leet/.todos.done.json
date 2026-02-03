@@ -399,6 +399,16 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "infographic-id-session-id-image-url-layout-meta-created-at",
+      "content": "Infographic: id, session_id, image_url, layout_meta, created_at",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
