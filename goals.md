@@ -158,7 +158,7 @@ Appendix: sample user flow
 
 ## Acceptance Criteria
 
-- [ ] All requirements implemented
-- [ ] All features have unit tests
-- [ ] README.md documents all features
+- [x] All requirements implemented
+- [x] All features have unit tests
+- [x] README.md documents all features
 - [x] All tests pass
