@@ -61,16 +61,6 @@
       "branch": null
     },
     {
-      "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
-      "content": "Storage: relational DB for users/sessions; object storage for images",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "queue-worker-async-research-rendering-jobs",
       "content": "Queue/worker: async research + rendering jobs",
       "status": "pending",

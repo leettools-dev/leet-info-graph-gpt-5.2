@@ -229,6 +229,16 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "storage-relational-db-for-users-sessions-object-storage-for-images",
+      "content": "Storage: relational DB for users/sessions; object storage for images",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
