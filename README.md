@@ -39,27 +39,21 @@ See .leet/.todos.json for the current development status.
 
 ## Testing
 
-### Backend
+### CI/Local test commands
 
+Backend:
 ```bash
 cd backend
 python3 -m pytest
 ```
 
-### Frontend
-
+Frontend:
 ```bash
 cd frontend
 npm test
 ```
 
-
-
-### Frontend
-
-- Run unit tests: `cd frontend && npm test`
-- Run lint (includes basic accessibility rules via `eslint-plugin-jsx-a11y`): `cd frontend && npm run lint`
-
+Note: in some environments `pytest`/`python` may not be on PATH; prefer `python3 -m pytest`.
 ## License
 
 MIT
