@@ -1,36 +1,6 @@
 {
   "todos": [
     {
-      "id": "1-functional",
-      "content": "1 Functional",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "2-non-functional",
-      "content": "2 Non-functional",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "architecture",
-      "content": "Architecture",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "infographic-generator-template-based-layout-chart-rendering",
       "content": "Infographic generator: template-based layout + chart rendering",
       "status": "pending",
@@ -43,16 +13,6 @@
     {
       "id": "queue-worker-async-research-rendering-jobs",
       "content": "Queue/worker: async research + rendering jobs",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "data-model",
-      "content": "Data Model",
       "status": "pending",
       "background": null,
       "dependencies": [],
@@ -111,16 +71,6 @@
       "branch": null
     },
     {
-      "id": "implementation-plan",
-      "content": "Implementation Plan",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "phase-1-oauth-login-chat-ui-basic-backend-crud-search-source-list",
       "content": "Phase 1: OAuth login, chat UI, basic backend CRUD, search + source list",
       "status": "pending",
@@ -143,16 +93,6 @@
     {
       "id": "phase-3-advanced-layouts-tagging-exports-improved-source-scoring",
       "content": "Phase 3: Advanced layouts, tagging, exports, improved source scoring",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "risks",
-      "content": "Risks",
       "status": "pending",
       "background": null,
       "dependencies": [],
@@ -201,16 +141,6 @@
       "branch": null
     },
     {
-      "id": "success-metrics",
-      "content": "Success Metrics",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "adoption-of-users-who-create-2-sessions",
       "content": "Adoption: % of users who create >=2 sessions",
       "status": "pending",
@@ -243,16 +173,6 @@
     {
       "id": "provenance-90-of-claims-have-at-least-one-source-link",
       "content": "Provenance: 90% of claims have at least one source link",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "next-steps",
-      "content": "Next Steps",
       "status": "pending",
       "background": null,
       "dependencies": [],
