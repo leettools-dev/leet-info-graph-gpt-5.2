@@ -1,26 +1,6 @@
 {
   "todos": [
     {
-      "id": "core-oauth-login-chat-ui-web-search-summarization-infographic-generation-history-browsing",
-      "content": "Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": "main#feature#search-ingest-pipeline"
-    },
-    {
-      "id": "users",
-      "content": "Users",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "students-and-educators",
       "content": "Students and educators",
       "status": "pending",
@@ -83,16 +63,6 @@
     {
       "id": "architecture",
       "content": "Architecture",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
-      "id": "search-ingest-web-fetch-source-parser-summarizer",
-      "content": "Search/ingest: web fetch + source parser + summarizer",
       "status": "pending",
       "background": null,
       "dependencies": [],
@@ -404,6 +374,16 @@
       "id": "browse-past-sessions-in-history",
       "content": "Browse past sessions in History",
       "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "search-ingest-web-fetch-source-parser-summarizer",
+      "content": "Search/ingest: web fetch + source parser + summarizer",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],

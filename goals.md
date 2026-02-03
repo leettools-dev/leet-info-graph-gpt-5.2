@@ -101,7 +101,7 @@ Appendix: sample user flow
 - [x] Input: natural-language research prompt
 - [x] Output: generated infographic (image + metadata), supporting sources, and a saved “research session”
 - [ ] Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing
-- [ ] Users
+- [x] Users
 - [ ] Students and educators
 - [ ] Product/market researchers
 - [ ] Knowledge workers who need quick visual summaries

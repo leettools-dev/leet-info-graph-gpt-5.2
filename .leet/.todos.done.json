@@ -179,6 +179,26 @@
       "suggested_solutions": [],
       "goal_id": null,
       "branch": null
+    },
+    {
+      "id": "core-oauth-login-chat-ui-web-search-summarization-infographic-generation-history-browsing",
+      "content": "Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": "main#feature#search-ingest-pipeline"
+    },
+    {
+      "id": "users",
+      "content": "Users",
+      "status": "completed",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
     }
   ]
 }
