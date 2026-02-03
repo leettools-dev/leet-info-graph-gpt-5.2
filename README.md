@@ -15,6 +15,9 @@ generates an infographic, and provides...
 
 - **OAuth hardening (N2)**: Google OAuth now includes `state` generation and callback validation to protect against CSRF. The backend also requires `INFOGRAPH_SECRET_KEY` (no default secret in code) and supports loading configuration from a local `.env` file (ignored by git). See `backend/.env.example`.
 
+
+- **Source ingest pipeline (fetch + parse + summarize)**: `POST /api/ingest/sessions/{session_id}` fetches saved source URLs, extracts title/text, generates a deterministic summary, and fills `Source.snippet` + updates session status to `ingested`.
+
 ## Getting Started
 
 ### Prerequisites
