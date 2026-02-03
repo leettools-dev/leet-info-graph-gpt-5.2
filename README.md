@@ -27,6 +27,10 @@ generates an infographic, and provides...
 
 
 - **Infographic generation (MVP)**: `POST /api/sessions/{id}/infographic` generates and stores a simple, deterministic SVG infographic for a session, returned as a `data:image/svg+xml` URL with `layout_meta` (title, bullets, and source provenance).
+
+- **Google OAuth callback (backend)**: `GET /api/auth/google/callback?code=...` exchanges the authorization code for Google OIDC userinfo, upserts a local User, and sets a signed `session` cookie.
+  - Config via env vars: `INFOGRAPH_GOOGLE_CLIENT_ID`, `INFOGRAPH_GOOGLE_CLIENT_SECRET`, `INFOGRAPH_GOOGLE_REDIRECT_URI`, `INFOGRAPH_COOKIE_SECURE`.
+  - Note: `state`/CSRF validation is not yet implemented (planned hardening item).
 ## Getting Started
 
 ### Prerequisites

@@ -99,7 +99,7 @@ Appendix: sample user flow
 - [x] Purpose
 - [ ] Scope
 - [x] Input: natural-language research prompt
-- [ ] Output: generated infographic (image + metadata), supporting sources, and a saved “research session”
+- [x] Output: generated infographic (image + metadata), supporting sources, and a saved “research session”
 - [ ] Core: OAuth login, chat UI, web search + summarization + infographic generation, history browsing
 - [ ] Users
 - [ ] Students and educators
