@@ -122,7 +122,7 @@ Appendix: sample user flow
 - [x] N5: Accessibility: keyboard nav, ARIA labels, contrast checks
 - [ ] Architecture
 - [ ] Frontend: SPA (chat, history, detail pages)
-- [ ] Backend API: auth, session CRUD, job orchestration
+- [x] Backend API: auth, session CRUD, job orchestration
 - [ ] Search/ingest: web fetch + source parser + summarizer
 - [ ] Infographic generator: template-based layout + chart rendering
 - [ ] Storage: relational DB for users/sessions; object storage for images

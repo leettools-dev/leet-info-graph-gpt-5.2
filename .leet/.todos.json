@@ -101,16 +101,6 @@
       "branch": null
     },
     {
-      "id": "backend-api-auth-session-crud-job-orchestration",
-      "content": "Backend API: auth, session CRUD, job orchestration",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "search-ingest-web-fetch-source-parser-summarizer",
       "content": "Search/ingest: web fetch + source parser + summarizer",
       "status": "pending",
