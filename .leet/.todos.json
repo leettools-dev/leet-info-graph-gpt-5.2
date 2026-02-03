@@ -131,16 +131,6 @@
       "branch": null
     },
     {
-      "id": "f3-web-search-pipeline-to-collect-sources-show-source-list",
-      "content": "F3: Web search pipeline to collect sources; show source list",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "f4-generate-infographic-title-key-stats-bullets-charts-references",
       "content": "F4: Generate infographic (title, key stats, bullets, charts, references)",
       "status": "pending",
@@ -584,6 +574,16 @@
       "id": "browse-past-sessions-in-history",
       "content": "Browse past sessions in History",
       "status": "pending",
+      "background": null,
+      "dependencies": [],
+      "suggested_solutions": [],
+      "goal_id": null,
+      "branch": null
+    },
+    {
+      "id": "f3-web-search-pipeline-to-collect-sources-show-source-list",
+      "content": "F3: Web search pipeline to collect sources; show source list",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],

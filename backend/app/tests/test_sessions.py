@@ -1,12 +1,14 @@
 import pytest
-from httpx import AsyncClient
+from httpx import ASGITransport, AsyncClient
 
 from app.main import app
 
 
 @pytest.mark.asyncio
 async def test_create_and_list_sessions_unauthenticated():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    async with AsyncClient(
+        transport=ASGITransport(app=app), base_url="http://test"
+    ) as ac:
         r = await ac.get("/api/sessions")
         assert r.status_code == 401
 
@@ -14,23 +16,34 @@ async def test_create_and_list_sessions_unauthenticated():
 @pytest.mark.asyncio
 async def test_create_and_get_session_authenticated(tmp_path, monkeypatch):
     # Use temp sqlite db
-    monkeypatch.setenv("INFOGRAPH_DATABASE_URL", f"sqlite+aiosqlite:///{tmp_path}/test.db")
+    monkeypatch.setenv(
+        "INFOGRAPH_DATABASE_URL", f"sqlite+aiosqlite:///{tmp_path}/test.db"
+    )
 
     # re-import app with patched settings by creating a new instance
     from importlib import reload
 
     import app.core.config as config
+
     reload(config)
 
     import app.db.session as session
+
     reload(session)
 
     import app.main as main
+
     reload(main)
 
-    async with AsyncClient(app=main.app, base_url="http://test") as ac:
+    async with AsyncClient(
+        transport=ASGITransport(app=main.app), base_url="http://test"
+    ) as ac:
         # dev login sets cookie via redirect
-        r = await ac.get("/api/auth/dev/login", params={"email": "a@example.com"}, follow_redirects=False)
+        r = await ac.get(
+            "/api/auth/dev/login",
+            params={"email": "a@example.com"},
+            follow_redirects=False,
+        )
         assert r.status_code in (302, 307)
         cookie = r.headers.get("set-cookie")
         assert cookie and "session=" in cookie
