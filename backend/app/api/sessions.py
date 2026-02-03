@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.responses import Response
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -17,6 +18,112 @@ from app.schemas.sessions import (
 )
 
 router = APIRouter(prefix="/sessions", tags=["sessions"])
+
+
+@router.get("/{session_id}/export.json")
+async def export_session_json(
+    session_id: int,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+) -> dict:
+    """Export a full research session as JSON.
+
+    Includes: session metadata, sources, messages, and infographic metadata.
+    """
+    res = await db.execute(
+        select(ResearchSession).where(
+            ResearchSession.id == session_id,
+            ResearchSession.user_id == user.id,
+        )
+    )
+    session = res.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    await db.refresh(session, attribute_names=["sources", "messages", "infographic"])
+
+    return {
+        "session": {
+            "id": session.id,
+            "prompt": session.prompt,
+            "status": session.status,
+            "created_at": session.created_at.isoformat(),
+        },
+        "sources": [
+            {
+                "id": src.id,
+                "title": src.title,
+                "url": src.url,
+                "snippet": src.snippet,
+                "fetched_at": (src.fetched_at.isoformat() if src.fetched_at else None),
+                "confidence": src.confidence,
+            }
+            for src in session.sources
+        ],
+        "messages": [
+            {
+                "id": m.id,
+                "role": m.role,
+                "content": m.content,
+                "created_at": m.created_at.isoformat(),
+            }
+            for m in session.messages
+        ],
+        "infographic": (
+            {
+                "id": session.infographic.id,
+                "image_url": session.infographic.image_url,
+                "layout_meta": session.infographic.layout_meta,
+                "created_at": session.infographic.created_at.isoformat(),
+            }
+            if session.infographic
+            else None
+        ),
+    }
+
+
+@router.get("/{session_id}/infographic.svg")
+async def export_infographic_svg(
+    session_id: int,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """Export the session infographic as an SVG file.
+
+    For the MVP, infographics are stored as a data URL containing SVG.
+    """
+    res = await db.execute(
+        select(ResearchSession).where(
+            ResearchSession.id == session_id,
+            ResearchSession.user_id == user.id,
+        )
+    )
+    session = res.scalar_one_or_none()
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    await db.refresh(session, attribute_names=["infographic"])
+    if not session.infographic or not session.infographic.image_url:
+        raise HTTPException(status_code=404, detail="Infographic not found")
+
+    image_url: str = session.infographic.image_url
+    if not image_url.startswith("data:image/svg+xml"):
+        raise HTTPException(status_code=409, detail="Infographic is not an SVG data URL")
+
+    # Handle both `;utf8,` and plain `,` separators.
+    idx = image_url.find(",")
+    if idx == -1:
+        raise HTTPException(status_code=500, detail="Invalid infographic data URL")
+
+    svg = image_url[idx + 1 :]
+
+    return Response(
+        content=svg,
+        media_type="image/svg+xml",
+        headers={
+            "Content-Disposition": f"attachment; filename=infographic-session-{session.id}.svg"
+        },
+    )
 
 
 @router.post(

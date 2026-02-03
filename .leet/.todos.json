@@ -71,16 +71,6 @@
       "branch": null
     },
     {
-      "id": "f6-history-view-with-filters-topic-date-tags-and-detail-page",
-      "content": "F6: History view with filters (topic, date, tags) and detail page",
-      "status": "pending",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "f7-export-infographic-png-svg-and-session-data-json",
       "content": "F7: Export infographic (PNG/SVG) and session data (JSON)",
       "status": "pending",

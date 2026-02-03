@@ -112,7 +112,7 @@ Appendix: sample user flow
 - [x] F3: Web search pipeline to collect sources; show source list
 - [x] F4: Generate infographic (title, key stats, bullets, charts, references)
 - [x] F5: Save each research session with prompt, sources, and infographic
-- [ ] F6: History view with filters (topic, date, tags) and detail page
+- [x] F6: History view with filters (topic, date, tags) and detail page
 - [ ] F7: Export infographic (PNG/SVG) and session data (JSON)
 - [ ] 2 Non-functional
 - [ ] N1: Rate-limit external calls; cache source fetches
