@@ -13,7 +13,7 @@
     {
       "id": "latency-end-to-end-research-render-90s-p50",
       "content": "Latency: end-to-end research + render < 90s (P50)",
-      "status": "pending",
+      "status": "in_progress",
       "background": null,
       "dependencies": [],
       "suggested_solutions": [],

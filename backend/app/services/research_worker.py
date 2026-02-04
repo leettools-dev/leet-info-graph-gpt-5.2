@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from time import perf_counter
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -16,10 +17,14 @@ from app.services.web_search import DuckDuckGoHTMLSearchClient
 async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
     """End-to-end research job: search -> ingest sources -> render infographic.
 
+    Also returns timing metadata (milliseconds) to support latency SLO tracking.
+
     Persists Sources and an Infographic for the session.
 
     Returns a small result payload suitable for a job status endpoint.
     """
+
+    t0 = perf_counter()
 
     res = await db.execute(select(ResearchSession).where(ResearchSession.id == session_id))
     session = res.scalar_one_or_none()
@@ -29,10 +34,13 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
     query = session.prompt
 
     # 1) Web search
+    t_search0 = perf_counter()
     search_client = DuckDuckGoHTMLSearchClient()
     hits = await search_client.search(query)
+    t_search_ms = int((perf_counter() - t_search0) * 1000)
 
     # 2) Ingest a few sources (guardrails to avoid runaway cost/latency)
+    t_ingest0 = perf_counter()
     pipeline = IngestPipeline(max_chars=settings.ingest_max_source_chars_for_summarization)
     ingested = []
     failures = 0
@@ -71,6 +79,7 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
     )
 
     await db.commit()
+    t_ingest_ms = int((perf_counter() - t_ingest0) * 1000)
 
     # 4) Render infographic based on persisted sources
     await db.refresh(session, attribute_names=["sources", "infographic"])
@@ -85,14 +94,18 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
         for s in session.sources
     ]
 
+    t_render0 = perf_counter()
     renderer = InfographicRenderer()
     rendered = renderer.render_session_infographic(prompt=session.prompt, sources=sources_meta)
+    t_render_ms = int((perf_counter() - t_render0) * 1000)
 
     storage = LocalMediaStorage(settings.media_root, settings.media_base_url)
+    t_store0 = perf_counter()
     stored = storage.save_bytes(
         rel_path=f"sessions/{session.id}/infographic.svg",
         content=rendered.svg_bytes,
     )
+    t_store_ms = int((perf_counter() - t_store0) * 1000)
 
     if session.infographic:
         session.infographic.image_url = stored.url
@@ -109,9 +122,18 @@ async def run_research_and_render(*, session_id: int, db: AsyncSession) -> dict:
     session.status = "completed"
     await db.commit()
 
+    t_total_ms = int((perf_counter() - t0) * 1000)
+
     return {
         "session_id": session.id,
         "status": session.status,
         "sources_created": len(ingested),
         "infographic_url": stored.url,
+        "timing_ms": {
+            "total": t_total_ms,
+            "search": t_search_ms,
+            "ingest": t_ingest_ms,
+            "render": t_render_ms,
+            "store": t_store_ms,
+        },
     }
