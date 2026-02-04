@@ -146,7 +146,7 @@ Appendix: sample user flow
 - [x] Adoption: % of users who create >=2 sessions
 - [x] Quality: user rating >=4/5 on infographic usefulness
 - [x] Latency: end-to-end research + render < 90s (P50)
-- [ ] Provenance: 90% of claims have at least one source link
+- [x] Provenance: 90% of claims have at least one source link
 - [x] Next Steps
 - [x] Confirm OAuth scope and UI flows
 - [x] Define infographic templates and chart types

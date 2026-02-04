@@ -11,16 +11,6 @@
       "branch": null
     },
     {
-      "id": "provenance-90-of-claims-have-at-least-one-source-link",
-      "content": "Provenance: 90% of claims have at least one source link",
-      "status": "in_progress",
-      "background": null,
-      "dependencies": [],
-      "suggested_solutions": [],
-      "goal_id": null,
-      "branch": null
-    },
-    {
       "id": "confirm-oauth-scope-and-ui-flows",
       "content": "Confirm OAuth scope and UI flows",
       "status": "completed",
