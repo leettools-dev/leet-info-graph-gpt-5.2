@@ -13,33 +13,13 @@ generates an infographic, and provides...
 
 ## Features
 
-- **Upstream rate-limit resilience (MVP):** external web search and source fetch calls use an in-process token-bucket limiter. When the limiter is saturated, calls *wait for an available token* instead of failing fast, reducing user-visible errors during temporary throttling.
 
+### Latency instrumentation (MVP)
+The research worker now returns step-level timing metadata to support latency SLO tracking.
 
-### Cost/latency guardrails for research jobs
-- Caps web-search results and number of sources ingested per session.
-- Truncates fetched source text before summarization to avoid runaway processing.
+- Job status `result` includes `timing_ms` with: `total`, `search`, `ingest`, `render`, `store`.
 
-Config (env):
-- `INFOGRAPH_SEARCH_MAX_RESULTS` (default: 5)
-- `INFOGRAPH_INGEST_MAX_SOURCES_PER_SESSION` (default: 5)
-- `INFOGRAPH_INGEST_MAX_FAILURES_PER_SESSION` (default: 10)
-- `INFOGRAPH_INGEST_MAX_SOURCE_CHARS_FOR_SUMMARIZATION` (default: 20000)
-
-
-### Adoption metrics (MVP)
-
-Backend exposes a simple per-user adoption metric: whether the signed-in user has created **>=2 research sessions** within a given time window.
-
-**Endpoint**
-- `GET /api/metrics/adoption?days=30` (requires authentication cookie)
-
-**Response**
-Returns a small JSON payload including:
-- `sessions_in_window`
-- `eligible_users` (0/1)
-- `users_with_2plus_sessions` (0/1)
-- `adoption_rate` (0.0 or 1.0 in MVP)
+This enables measuring end-to-end latency (P50) from the backend without external APM.
 
 ## Getting Started
 
